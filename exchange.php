@@ -1,6 +1,6 @@
 <?php
     session_start(); 
-    $pdo = new PDO('mysql:host=localhost;dbname=exchange', 'root', '');
+    $pdo = new PDO('mysql:host=localhost;dbname=neinGag', 'root', '');
 ?>
 
 <html>
@@ -18,18 +18,15 @@
 <img src="./images/addButton.png" class="addImages">
 
 <!--Registrieren-->
-<button id="open-dialog">Registrieren</button>
-<dialog role="dialog">
-    <button id="close-dialog">X</button>
-    <h2>Registration</h2> 
-    <form method="post" action="?register=1">
-        <label for="formNickname">Nickname: </label><input type="text" name="formNickname">
-        <label for="formMail">E-Mail Adresse: </label><input type="email" name="formMail" minlength="1">
-        <label for="formPassword">Passwort: </label><input type="password" name="formPassword">
-        <label for="formPassword2">Passwort wiederholen: </label><input type="password" name="formPassword2"><br>
-        <input type="submit" value="Senden">
-    </form>
-</dialog>
+<button>Registrieren</button>
+<h2>Registration</h2> 
+<form method="post" action="?register=1">
+    <label for="formNickname">Nickname: </label><input type="text" name="formNickname">
+    <label for="formMail">E-Mail Adresse: </label><input type="email" name="formMail" minlength="1">
+    <label for="formPassword">Passwort: </label><input type="password" name="formPassword">
+    <label for="formPassword2">Passwort wiederholen: </label><input type="password" name="formPassword2"><br>
+    <input type="submit" value="Senden">
+</form>
 
 <?php
     if (isset($_GET['register'])){
