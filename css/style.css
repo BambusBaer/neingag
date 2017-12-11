@@ -41,11 +41,9 @@ button{
 	border-radius: 90px 90px 90px 90px; 
 }
 
-
 #login{
-	color: white; 
-	float: right; 
-
+	color: white;
+	float: left;  	
 }
 
 #activities{
