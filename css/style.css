@@ -1,0 +1,71 @@
+header{
+	position: fixed; 
+	background: black; 
+	height: 60px; 
+	top: 0; 
+	left: 0; 
+	right: 0; 
+}
+
+#logo{
+	width: 60px; 
+	height: 60px; 
+	float: left; 
+	border-radius: 0 0 90px 0; 
+}
+
+img.addImages{
+	float: left; 
+	display: block; 
+	height: 200px; 
+	width: 300px; 
+	margin-right: auto; 
+	margin-left: auto; 
+	margin-top: -40px; 
+}
+
+
+#profile{
+	width: 60px; 
+	height: 60px; 
+	border-radius: 0 0 0 90px; 
+	float: right;  
+}
+
+button{
+	background: darkred; 
+	color: white; 
+	float: left; 
+	width: 50px; 
+	height: 50px; 
+	border-radius: 90px 90px 90px 90px; 
+}
+
+
+#login{
+	color: white; 
+	float: right; 
+
+}
+
+#activities{
+	position: fixed; 
+	width: 200px; 
+	height: 100%; 
+	background: blue; 
+	float: left; 
+	left: -10px;  
+	margin-top: 52px; 
+	overflow: scroll; 
+}
+
+#friends{ 
+	position: fixed; 
+	width: 200px; 
+	height: 100%; 
+	background: darkred; 
+	float: right; 
+	right: -10px; 
+	margin-top: 52px; 
+	overflow: scroll; 
+}
