@@ -81,6 +81,8 @@
         //it´s alright
         if(!$check) { 
             
+			$newUser['password'] = password_hash($newUser['password'], PASSWORD_DEFAULT);
+			
             //write in database
             $statement = $pdo->prepare("INSERT INTO users (nickname, email, password) VALUES (:nickname, :email, :password)");
             $result = $statement->execute($newUser); 
@@ -98,6 +100,14 @@
 ?>
 
 <!--Login-->
+<div id="login">
+<form method="post" action="?login=1">
+    <label for="loginMail">E-Mail: </label><input type="email" name="loginMail"><br>
+    <label for="loginPassword">Passwort: </label><input type="password" name="loginPassword"><br>
+    <input type="submit" value="Anmelden">
+</form>
+</div>
+
 <?php
     if (isset($_GET['login'])){
         $loginMail = $_POST['loginMail']; 
@@ -119,13 +129,6 @@
     }
 ?>
 
-<div id="login">
-<form method="post" action="?login=1">
-    <label for="loginMail">E-Mail: </label><input type="email" name="loginMail"><br>
-    <label for="loginPassword">Passwort: </label><input type="password" name="loginPassword"><br>
-    <input type="submit" value="Anmelden">
-</form>
-</div>
 </header>
 
 <!--Registrieren-->
