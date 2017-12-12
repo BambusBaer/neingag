@@ -1,69 +1,165 @@
-header{
+* {
+	margin: 0;
+	padding: 0;
+}
+
+header {
 	position: fixed; 
 	background: black; 
-	height: 60px; 
+	height: 6%; 
 	top: 0; 
 	left: 0; 
 	right: 0; 
 }
 
-#logo{
-	width: 60px; 
-	height: 60px; 
-	float: left; 
-	border-radius: 0 0 90px 0; 
+body {
+	position: absolute;
+	top: 6%;
+	width: 100%;
 }
 
-img.addImages{
-	float: left; 
-	display: block; 
-	height: 200px; 
-	width: 300px; 
-	margin-right: auto; 
-	margin-left: auto; 
-	margin-top: -40px; 
+footer {
+	border-top: 1px solid #415100;
+	position: fixed;
+	background: black; 
+	bottom: 0;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 
-
-#profile{
-	width: 60px; 
-	height: 60px; 
-	border-radius: 0 0 0 90px; 
-	float: right;  
-}
-
-button{
-	background: darkred; 
-	color: white; 
-	float: left; 
-	width: 50px; 
-	height: 50px; 
-	border-radius: 90px 90px 90px 90px; 
-}
-
-#login{
+footer a {
+	margin: 3px;
+	padding: 3px;
 	color: white;
-	float: left;  	
+	text-align:center;
+	box-sizing:border-box;
+	text-decoration:none;
 }
 
-#activities{
-	position: fixed; 
-	width: 200px; 
-	height: 100%; 
-	background: blue; 
-	float: left; 
-	left: -10px;  
-	margin-top: 52px; 
-	overflow: scroll; 
+ul {
+	list-style-type: none;
 }
 
-#friends{ 
-	position: fixed; 
-	width: 200px; 
-	height: 100%; 
-	background: darkred; 
-	float: right; 
-	right: -10px; 
-	margin-top: 52px; 
-	overflow: scroll; 
+/* Topnavigation */
+.nav {
+	background-color: black;
+	width: auto;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+
+.nav ul {
+	display:flex;	
+}
+
+.nav li {
+	width: 100%;
+	margin-right:6px;
+}
+
+.nav li a{
+	width: 100%;
+	text-align:center;
+	background-color:black;
+	color:#DCFF51;
+	display:block;
+	padding:3px;
+	text-align:center;
+	box-sizing:border-box;
+	text-decoration:none;
+	font-weight:bold;
+	
+}
+
+.nav li a:hover {
+	background-color: #E8FF88;
+	color: #556A00;
+	
+}
+
+
+/* Seitennavigation */
+.sideNav {
+	background-color: white;
+	border-right: 1px solid black;
+	width: 200px;
+	position: fixed;
+}
+
+.sideNav li {
+	width: 100%;
+	margin-right:1px;
+}
+
+.sideNav li a{
+	text-align:center;
+	background-color:white;
+	color:black;
+	display:block;
+	padding:10px;
+	margin: 5px;
+	text-align:center;
+	box-sizing:border-box;
+	text-decoration:none;
+	font-weight:bold;
+	
+}
+
+.sideNav li a:hover {
+	background-color: lightgray;
+	color: white;
+}
+
+
+form {
+	padding: 10px;
+}
+
+p label {
+	float:left;
+	clear:left;
+	display:block;
+	width:70px;
+	margin: 5px;
+}
+
+input {
+	border: 1px solid black;
+	font-size: 16px;
+	margin: 5px;
+	padding: 1px;
+}
+
+#login, #register {
+	margin-top: 10%;
+	margin-right: auto;
+	margin-left: auto;
+	border: 1px solid black;
+	width: 15%;
+}
+
+#login form, #register form {
+	width: 100%;
+}
+
+
+article {
+	display:flex;	
+	border: 1px solid #415100;
+	margin-top: 10px;
+	margin-bottom: 40px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 50%;
+	
+}
+
+section {
+	padding:10px;
+	border: 1px solid #415100;
+	width: 100%;
+	margin:10px;
 }
