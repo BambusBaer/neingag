@@ -11,9 +11,14 @@
 		<link href="./css/style.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
-	<header>
+	<header>	
+		<!-- check if the user is logged in, then display either menu with login/register or logout/profile/upload -->
 		<?php
-		include('menu.php');
+			session_start();
+			if(!isset($_SESSION['userid']))
+				include('menu.php');
+			else 
+				include('menu2.php');
 		?>
 	</header>
 	<?php

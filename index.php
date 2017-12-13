@@ -1,3 +1,8 @@
+<?php
+    session_start(); 
+    $pdo = new PDO('mysql:host=localhost;dbname=neinGag', 'root', '');
+?>
+
 <!doctype html>
 <html>
 	<head>
@@ -6,7 +11,8 @@
 		<link href="./css/style.css" rel="stylesheet" type="text/css"/>
 	</head>
 	<body>
-	<header>
+	<header>	
+		<!-- check if the user is logged in, then display either menu with login/register or logout/profile/upload -->
 		<?php
 			session_start();
 			if(!isset($_SESSION['userid']))
