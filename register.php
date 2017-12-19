@@ -93,12 +93,12 @@
 
 				if($result) { 
 					echo 'Du wurdest erfolgreich registriert.';
+					mkdir('users/'.$newUser['nickname'].'#'.$pdo->lastInsertId());					
 				} else {
 					echo 'Beim Abspeichern ist leider ein Fehler aufgetreten<br>';
 				}
 
 				//create individual folder
-				mkdir('users/'.$newUser['nickname'].'#'.$pdo->lastInsertId());
 				header('location: index.php');
 			}
 		}

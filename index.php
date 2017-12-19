@@ -14,7 +14,6 @@
 	<header>	
 		<!-- check if the user is logged in, then display either menu with login/register or logout/profile/upload -->
 		<?php
-			session_start();
 			if(!isset($_SESSION['userid']))
 				include('menu.php');
 			else 
