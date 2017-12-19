@@ -32,19 +32,16 @@
 	</article>
 <article>
 	<?php
-			$id=1;
 			$newImage['userName'] = $_SESSION['userid'];
 			$newImage['userImagenumber'] = 1;
 			$newImage['boringCounter'] = 1; 
 			$newImage['comments'] = "A";
-			$user = $_SESSION['userid'];
 			echo($user);
 
 			$upload_folder = 'users/'.$user.'/'; //Das Upload-Verzeichnis
 			$extension = strtolower(pathinfo($_FILES['datei']['name'], PATHINFO_EXTENSION));
 				
-				
-			//Überprüfung der Dateiendung
+			//Check IMG Type
 			$allowed_extensions = array('png', 'jpg', 'jpeg', 'gif');
 			if(!in_array($extension, $allowed_extensions)) {
 				die("Ungültige Dateiendung. Nur png, jpg, jpeg und gif-Dateien sind erlaubt");
@@ -84,8 +81,6 @@
 			$statement = $pdo->prepare("INSERT INTO images (userName, userImagenumber, boringCounter, comments) VALUES (:userName, :userImagenumber, :boringCounter, :comments)");
 			$result = $statement->execute($newImage); 
 			echo 'Bild erfolgreich hochgeladen: <a href="users">'.$newPath.'</a>';
-			
-
 		?>
 	</article>
 
