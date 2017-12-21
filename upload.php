@@ -25,13 +25,13 @@
 	include('footer.php');
 	?>
 	<article>
-	<form method="post" enctype="multipart/form-data">
-		<input type="file" name="datei"><br>
-		<input type="submit" value="Hochladen">
-	</form>
+		<form method="post" enctype="multipart/form-data">
+			<input type="file" name="datei"><br>
+			<input type="submit" value="Hochladen">
+		</form>
 	</article>
-<article>
-	<?php
+	<article>
+		<?php
 			$newImage['userName'] = $_SESSION['userid'];
 			$newImage['userImagenumber'] = 1;
 			$newImage['boringCounter'] = 1; 
