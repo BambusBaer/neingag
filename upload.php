@@ -25,20 +25,19 @@
 	include('footer.php');
 	?>
 	<article>
-	<form method="post" enctype="multipart/form-data">
-		<input type="file" name="datei"><br>
-		<input type="submit" value="Hochladen">
-	</form>
+		<form method="post" enctype="multipart/form-data">
+			<input type="file" name="datei"><br>
+			<input type="submit" value="Hochladen">
+		</form>
 	</article>
-<article>
-	<?php
+	<article>
+		<?php
 			$newImage['userName'] = $_SESSION['userid'];
 			$newImage['userImagenumber'] = 1;
 			$newImage['boringCounter'] = 1; 
 			$newImage['comments'] = "A";
-			echo($user);
 
-			$upload_folder = 'users/'.$user.'/'; //Das Upload-Verzeichnis
+			$upload_folder = 'users/'.$newImage['userName'].'/'; //Das Upload-Verzeichnis
 			$extension = strtolower(pathinfo($_FILES['datei']['name'], PATHINFO_EXTENSION));
 				
 			//Check IMG Type
