@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 19. Dez 2017 um 11:25
--- Server-Version: 10.1.22-MariaDB
--- PHP-Version: 7.1.4
+-- Erstellungszeit: 21. Dez 2017 um 14:42
+-- Server-Version: 10.1.21-MariaDB
+-- PHP-Version: 7.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -41,12 +39,7 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`imageId`, `userName`, `userImagenumber`, `boringCounter`, `comments`) VALUES
-(45, 'fatHobbit#54', 1, 1, 0x41),
-(46, 'fatHobbit#54', 2, 1, 0x41),
-(47, 'fatHobbit#54', 3, 1, 0x41),
-(48, 'fatHobbit#54', 4, 1, 0x41),
-(49, 'fatHobbit#54', 5, 1, 0x41),
-(50, 'fatHobbit#54', 6, 1, 0x41);
+(51, 'Admin61', 1, 1, 0x41);
 
 -- --------------------------------------------------------
 
@@ -66,7 +59,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nickname`, `email`, `password`) VALUES
-(54, 'fatHobbit', 'bjoern.ammon@gmx.de', '$2y$10$PxlBznXZMEptpnWaOAoVwuzob53QG.XR3QPPRmQ68yudp3vfjyYjq');
+(61, 'Admin', 'ad@mi.n', '$2y$10$8HNIXqSDHWp9.Yoefa1HyuBLa/gWyj7W350.ZLJUcVJyqXk0zQ/QO');
 
 --
 -- Indizes der exportierten Tabellen
@@ -76,7 +69,7 @@ INSERT INTO `users` (`id`, `nickname`, `email`, `password`) VALUES
 -- Indizes für die Tabelle `images`
 --
 ALTER TABLE `images`
-  ADD PRIMARY KEY (`imageId`);
+  ADD UNIQUE KEY `imageId` (`imageId`);
 
 --
 -- Indizes für die Tabelle `users`
@@ -93,13 +86,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `images`
 --
 ALTER TABLE `images`
-  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 --
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;COMMIT;
-
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

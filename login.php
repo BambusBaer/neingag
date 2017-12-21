@@ -41,7 +41,7 @@
 				
 			//check password
 			if ($user !== false && password_verify($loginPassword, $user['password'])) {
-				$_SESSION['userid'] = $user['nickname']."#".$user['id'];
+				$_SESSION['userid'] = $user['nickname'].$user['id'];
 				echo('Login erfolgreich.');
 				echo("{$_SESSION['userid']}"."<br />"); // reine testausgabe
 				
