@@ -28,7 +28,7 @@
 
 				$sql = "SELECT * FROM images ORDER BY imageId DESC LIMIT $newestPost"; 
 				foreach($pdo->query($sql) as $user){
-					echo '<div class="images">'.'<img src="users/'.$user['userName'].'/'.$user['userName'].'_'.$user['userImagenumber'].'.'.$user['datatype'].'" height="90%" width="80%">'.'<br/>';  
+					echo '<img src="users/'.$user['userName'].'/'.$user['userName'].'_'.$user['userImagenumber'].'.'.$user['datatype'].'" height="90%" width="80%">'.'<br/>';  
 				}
 			?>
 		</section>

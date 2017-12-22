@@ -34,11 +34,11 @@
 
 			// Show the pictures without logged user
 			if(!isset($_SESSION['userid'])){
-				echo '<div class="images">'.'<img src="users/'.$user['userName'].'/'.$user['userName'].'_'.$user['userImagenumber'].'.'.$user['datatype'].'" height="90%" width="80%">'.'<br/>';  
+				echo '<img src="users/'.$user['userName'].'/'.$user['userName'].'_'.$user['userImagenumber'].'.'.$user['datatype'].'" height="90%" width="80%">'.'<br/>';  
 			}
 			//Show me the picture
 			else if($user['userName'] != $_SESSION['userid']){
-				echo '<div class="images">'.'<img src="users/'.$user['userName'].'/'.$user['userName'].'_'.$user['userImagenumber'].'.'.$user['datatype'].'" height="90%" width="80%">'.'<br/>';  
+				echo '<img src="users/'.$user['userName'].'/'.$user['userName'].'_'.$user['userImagenumber'].'.'.$user['datatype'].'" height="90%" width="80%">'.'<br/>';  
 			}
 			
 		}
