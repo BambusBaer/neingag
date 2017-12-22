@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 21. Dez 2017 um 14:42
--- Server-Version: 10.1.21-MariaDB
--- PHP-Version: 7.1.2
+-- Erstellungszeit: 22. Dez 2017 um 13:04
+-- Server-Version: 10.1.22-MariaDB
+-- PHP-Version: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -30,6 +32,7 @@ CREATE TABLE `images` (
   `imageId` int(11) NOT NULL,
   `userName` varchar(255) NOT NULL,
   `userImagenumber` int(255) NOT NULL,
+  `datatype` varchar(10) NOT NULL,
   `boringCounter` int(255) NOT NULL,
   `comments` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -38,8 +41,15 @@ CREATE TABLE `images` (
 -- Daten für Tabelle `images`
 --
 
-INSERT INTO `images` (`imageId`, `userName`, `userImagenumber`, `boringCounter`, `comments`) VALUES
-(51, 'Admin61', 1, 1, 0x41);
+INSERT INTO `images` (`imageId`, `userName`, `userImagenumber`, `datatype`, `boringCounter`, `comments`) VALUES
+(2, 'fatHobbit', 1, 'jpg', 1, 0x41),
+(3, 'fatHobbit', 2, 'jpg', 1, 0x41),
+(4, 'fat', 1, 'png', 1, 0x41),
+(5, 'fat', 2, 'png', 1, 0x41),
+(6, 'dick', 1, 'jpg', 1, 0x41),
+(7, 'dick', 2, 'png', 1, 0x41),
+(8, 'Admin', 1, 'png', 1, 0x41),
+(9, 'Admin', 2, 'jpg', 1, 0x41);
 
 -- --------------------------------------------------------
 
@@ -59,7 +69,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nickname`, `email`, `password`) VALUES
-(61, 'Admin', 'ad@mi.n', '$2y$10$8HNIXqSDHWp9.Yoefa1HyuBLa/gWyj7W350.ZLJUcVJyqXk0zQ/QO');
+(62, 'fatHobbit', 'bjoern.ammon@gmx.de', '$2y$10$1RYqKwTwakhFLnmkFnz4aeM4UAbmysmwJVFVTM4fOJm/Dkja1UMoa'),
+(63, 'fat', 'fat@fat.fat', '$2y$10$0LFDiNrtcpfA7HDQKdh13.3QdrdwCo0ELskSbFQ1z9sf76dPfov3.'),
+(64, 'dick', 'dick@dick.dick', '$2y$10$oyvTNpdphuhjGuSXzkB9F.erS2IisbYLpgOQbSKYeXSw5F/WeBqg6'),
+(65, 'Admin', 'ad@mi.n', '$2y$10$jUl2LJzFR46qplbcsl27MOhV1OG2xPTdhI74hPNq/PvYT7n2HfDCi');
 
 --
 -- Indizes der exportierten Tabellen
@@ -69,7 +82,7 @@ INSERT INTO `users` (`id`, `nickname`, `email`, `password`) VALUES
 -- Indizes für die Tabelle `images`
 --
 ALTER TABLE `images`
-  ADD UNIQUE KEY `imageId` (`imageId`);
+  ADD PRIMARY KEY (`imageId`);
 
 --
 -- Indizes für die Tabelle `users`
@@ -86,12 +99,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `images`
 --
 ALTER TABLE `images`
-  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

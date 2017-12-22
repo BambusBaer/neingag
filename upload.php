@@ -40,6 +40,8 @@
 			$upload_folder = 'users/'.$newImage['userName'].'/'; //Das Upload-Verzeichnis
 			$extension = strtolower(pathinfo($_FILES['datei']['name'], PATHINFO_EXTENSION));
 				
+			$newImage['datatype'] = $extension; 
+
 			//Check IMG Type
 			$allowed_extensions = array('png', 'jpg', 'jpeg', 'gif');
 			if(!in_array($extension, $allowed_extensions)) {
@@ -77,7 +79,7 @@
 
 			//Move IMG to Userfolder
 			move_uploaded_file($_FILES['datei']['tmp_name'], $newPath);
-			$statement = $pdo->prepare("INSERT INTO images (userName, userImagenumber, boringCounter, comments) VALUES (:userName, :userImagenumber, :boringCounter, :comments)");
+			$statement = $pdo->prepare("INSERT INTO images (userName, userImagenumber, datatype, boringCounter, comments) VALUES (:userName, :userImagenumber, :datatype, :boringCounter, :comments)");
 			$result = $statement->execute($newImage); 
 			chmod($newPath, 0640);
 			echo 'Bild erfolgreich hochgeladen: <a href="users">'.$newPath.'</a>';

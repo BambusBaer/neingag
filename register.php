@@ -95,7 +95,7 @@
 					echo 'Du wurdest erfolgreich registriert.';
 					
 					//create individual folder
-					mkdir('users/'.$newUser['nickname'].$pdo->lastInsertId());					
+					mkdir('users/'.$newUser['nickname']);					
 				} else {
 					echo 'Beim Abspeichern ist leider ein Fehler aufgetreten<br>';
 				}
