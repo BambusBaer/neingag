@@ -85,11 +85,5 @@
 			echo 'Bild erfolgreich hochgeladen: <a href="users">'.$newPath.'</a>';
 		?>
 	</article>
-
-	<article>
-		<section>
-			upload stuff here
-		</section>
-	</article>
 	</body>
 </html>

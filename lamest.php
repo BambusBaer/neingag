@@ -20,13 +20,9 @@
 				include('menu2.php');
 		?>
 	</header>
-	<article>
-		<section>
-			lamest shown here
-		</section>
-	</article>
 	<?php
-	include('menu3.php');	
+	include('menu3.php');
+	$sort = 1;
 	include('content.php');	
 	include('footer.php');
 	?>

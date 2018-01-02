@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 22. Dez 2017 um 13:04
--- Server-Version: 10.1.22-MariaDB
--- PHP-Version: 7.1.4
+-- Erstellungszeit: 02. Jan 2018 um 17:08
+-- Server-Version: 10.1.21-MariaDB
+-- PHP-Version: 7.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -42,14 +40,20 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`imageId`, `userName`, `userImagenumber`, `datatype`, `boringCounter`, `comments`) VALUES
-(2, 'fatHobbit', 1, 'jpg', 1, 0x41),
-(3, 'fatHobbit', 2, 'jpg', 1, 0x41),
-(4, 'fat', 1, 'png', 1, 0x41),
-(5, 'fat', 2, 'png', 1, 0x41),
-(6, 'dick', 1, 'jpg', 1, 0x41),
-(7, 'dick', 2, 'png', 1, 0x41),
-(8, 'Admin', 1, 'png', 1, 0x41),
-(9, 'Admin', 2, 'jpg', 1, 0x41);
+(2, 'fatHobbit', 1, 'jpg', 3, 0x41),
+(3, 'fatHobbit', 2, 'jpg', 3, 0x41),
+(4, 'fat', 1, 'png', 5, 0x41),
+(5, 'fat', 2, 'png', 0, 0x41),
+(6, 'dick', 1, 'jpg', 8, 0x41),
+(7, 'dick', 2, 'png', 0, 0x41),
+(8, 'Admin', 1, 'png', 7, 0x41),
+(9, 'Admin', 2, 'jpg', 6, 0x41),
+(10, 'Admin', 3, 'jpg', 7, 0x41),
+(11, 'Admin', 4, 'jpg', 6, 0x41),
+(12, 'Admin', 5, 'jpg', 0, 0x41),
+(13, 'Admin', 6, 'jpg', 5, 0x41),
+(14, 'Admin', 7, 'jpg', -1, 0x41),
+(15, 'Nicky', 1, 'jpg', 1, 0x41);
 
 -- --------------------------------------------------------
 
@@ -72,7 +76,8 @@ INSERT INTO `users` (`id`, `nickname`, `email`, `password`) VALUES
 (62, 'fatHobbit', 'bjoern.ammon@gmx.de', '$2y$10$1RYqKwTwakhFLnmkFnz4aeM4UAbmysmwJVFVTM4fOJm/Dkja1UMoa'),
 (63, 'fat', 'fat@fat.fat', '$2y$10$0LFDiNrtcpfA7HDQKdh13.3QdrdwCo0ELskSbFQ1z9sf76dPfov3.'),
 (64, 'dick', 'dick@dick.dick', '$2y$10$oyvTNpdphuhjGuSXzkB9F.erS2IisbYLpgOQbSKYeXSw5F/WeBqg6'),
-(65, 'Admin', 'ad@mi.n', '$2y$10$jUl2LJzFR46qplbcsl27MOhV1OG2xPTdhI74hPNq/PvYT7n2HfDCi');
+(65, 'Admin', 'ad@mi.n', '$2y$10$jUl2LJzFR46qplbcsl27MOhV1OG2xPTdhI74hPNq/PvYT7n2HfDCi'),
+(66, 'Nicky', 'n@s.de', '$2y$10$KhD66NrzWIsZaKsleWwF1.ab/qWGixuqlynzatZovl16wDWcsz4Qy');
 
 --
 -- Indizes der exportierten Tabellen
@@ -99,13 +104,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `images`
 --
 ALTER TABLE `images`
-  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;COMMIT;
-
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

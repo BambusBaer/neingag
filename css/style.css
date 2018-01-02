@@ -147,19 +147,33 @@ input {
 
 
 article {
-	display:flex;	
 	border: 1px solid #415100;
 	margin-top: 10px;
 	margin-bottom: 40px;
 	margin-right: auto;
 	margin-left: auto;
 	width: 50%;
-	
 }
 
 section {
 	padding:10px;
 	border: 1px solid #415100;
-	width: 100%;
 	margin:10px;
+	display: flex;
+	align-items: center;
 }
+
+section div {
+	border: 1px solid green;
+}
+
+.images {
+	width: 60%;
+}
+
+.countComment {
+	margin: auto;
+	margin-top: 1%;
+}
+
+

@@ -21,7 +21,8 @@
 		?>
 	</header>
 	<?php
-	include('menu3.php');	
+	include('menu3.php');
+	$sort = 0;	
 	include('content.php');	
 	include('footer.php');
 	?>

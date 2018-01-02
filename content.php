@@ -1,47 +1,50 @@
 <article>
-	<section>
 		<?php
-
-		$randArray[] = 0; 
-
-		// Get the first imageId
-		$sql = "SELECT * FROM images ORDER BY imageId";
-		$firstId = $pdo->query($sql)->fetch(); 
-		// echo '<br/>erste id:'.$firstId['imageId'].'<br/>'; 
-
-		// Get the last imageId
-		$sql = "SELECT * FROM images ORDER BY imageId DESC";
-		$lastId = $pdo->query($sql)->fetch(); 
-		// echo 'letzte id:'.$lastId['imageId']; 
+				
+		// check for logged user
+		if(isset($_SESSION['userid']))
+			$loggedUser = $_SESSION['userid'];
+		else $loggedUser = "";		
 		
-		//Show me the pictures without repeats and without pics from logged user
-		for($i=$firstId['imageId']; $i<=$lastId['imageId'] ; $i++){
-
-			//Create randoms untill there is no match with randArray
-			do{
-
-				// Create random number, which will choose the img
-				$rand = mt_rand($firstId['imageId'], $lastId['imageId']);
-
-			}while(in_array($rand, $randArray) === true);
-			
-			//Save the randNumber in randArray
-			$randArray[] = $rand;
-
-			// Check if rand nr is from logged user
-			$sql = "SELECT * FROM images WHERE imageId = $rand"; 
+		switch ($sort) {
+			case 1:
+				$array = fetchImageIds("boringCounter", $loggedUser);
+				break;
+			case 2:
+				$array = fetchImageIds("imageId DESC", $loggedUser);
+				
+				break;
+			default:
+				$array = fetchImageIds("imageId", $loggedUser);
+				shuffle($array);
+				break;
+		}
+		
+		//display all images
+		for($i=0; $i<count($array); $i++){
+					
+			// load images from database
+			$sql = "SELECT * FROM images WHERE imageId = $array[$i]"; 
 			$user = $pdo->query($sql)->fetch(); 
+				
+			// display
+			echo '<section>';
+			echo '<div class="images">'.'<img src="users/'.$user['userName'].'/'.$user['userName'].'_'.$user['userImagenumber'].'.'.$user['datatype'].'"width="100%">'.'</div>';
+			echo '<div class="countComment"><div class="comment"><p>Lorem Ipsum</p></div><div class="counter">Boring: '.$user['boringCounter'].'<br/>';
+			echo '<a href="upvote.php?imgID='.$array[$i].'">upvote</a> <a href="downvote.php?imgID='.$array[$i].'">downvote</a></div></div>';
+			echo '</section><br/>';
+		}	
+		?>
+</article>
 
-			// Show the pictures without logged user
-			if(!isset($_SESSION['userid'])){
-				echo '<div class="images">'.'<img src="users/'.$user['userName'].'/'.$user['userName'].'_'.$user['userImagenumber'].'.'.$user['datatype'].'" height="90%" width="80%">'.'<br/>';  
-			}
-			//Show me the picture
-			else if($user['userName'] != $_SESSION['userid']){
-				echo '<div class="images">'.'<img src="users/'.$user['userName'].'/'.$user['userName'].'_'.$user['userImagenumber'].'.'.$user['datatype'].'" height="90%" width="80%">'.'<br/>';  
-			}
-			
+		<?php		
+			function fetchImageIds($sorting, $loggedUser) {
+				$pdo = new PDO('mysql:host=localhost;dbname=neinGag', 'root', '');
+				// fetch all image ids excluding those of a logged user
+				$sql = "SELECT * FROM images ORDER BY ".$sorting."";
+				foreach( $pdo->query($sql) as $row)
+					if($row['userName'] != $loggedUser)
+						$tmp[] = $row['imageId'];
+				return $tmp;
 		}
 		?>
-	</section>
-</article>
