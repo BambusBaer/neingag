@@ -45,7 +45,7 @@
 				echo('Login erfolgreich.');
 				echo("{$_SESSION['userid']}"."<br />"); // reine testausgabe
 				
-				header('location: index.php');
+				header('Location:'.$_SERVER['HTTP_REFERER']);
 			} else {
 				$errorMessage = "E-Mail oder Passwort war ungültig<br>";
 			}

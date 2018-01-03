@@ -10,6 +10,6 @@
 	
 	$statement = $pdo->prepare("UPDATE images SET boringCounter = ? WHERE imageId = ?");
 	$statement->execute(array($count, $_GET['imgID']));
-
-	header('location: index.php');
+	
+	header('Location:'.$_SERVER['HTTP_REFERER']);
 ?>

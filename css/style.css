@@ -152,10 +152,15 @@ article {
 	margin-bottom: 40px;
 	margin-right: auto;
 	margin-left: auto;
-	width: 50%;
+	width: 60%;
 }
 
-section {
+textarea { 
+    resize: none;
+    overflow: auto;
+}
+
+.container {
 	padding:10px;
 	border: 1px solid #415100;
 	margin:10px;
@@ -163,17 +168,13 @@ section {
 	align-items: center;
 }
 
-section div {
-	border: 1px solid green;
-}
-
 .images {
 	width: 60%;
+	margin-right: 5px;
 }
 
-.countComment {
-	margin: auto;
-	margin-top: 1%;
+.comments {
+	width: 40%;
 }
 
 

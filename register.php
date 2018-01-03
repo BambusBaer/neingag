@@ -100,7 +100,7 @@
 					echo 'Beim Abspeichern ist leider ein Fehler aufgetreten<br>';
 				}
 
-				header('location: index.php');
+			header('Location:'.$_SERVER['HTTP_REFERER']);
 			}
 		}
 	?>
