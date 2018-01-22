@@ -21,10 +21,10 @@
 		?>
 	</header>
 	<?php
-	include('menu3.php');	
-	$sort = 2;	
-	include('content.php');	
-	include('footer.php');
+		include('menu3.php');	
+		$sort = 2;	
+		include('content.php');	
+		include('footer.php');
 	?>
 	</body>
 </html>

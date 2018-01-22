@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 03. Jan 2018 um 17:41
--- Server-Version: 10.1.21-MariaDB
--- PHP-Version: 7.1.2
+-- Erstellungszeit: 22. Jan 2018 um 04:18
+-- Server-Version: 10.1.22-MariaDB
+-- PHP-Version: 7.1.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -27,8 +29,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `comments` (
-  `commentID` int(10) UNSIGNED NOT NULL,
+  `commentID` int(10) NOT NULL,
   `imageID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
   `comment` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -36,21 +39,21 @@ CREATE TABLE `comments` (
 -- Daten für Tabelle `comments`
 --
 
-INSERT INTO `comments` (`commentID`, `imageID`, `comment`) VALUES
-(1, 2, 'test'),
-(2, 2, 'awrfafwa'),
-(11, 5, 'teste'),
-(12, 5, 'testestestsetset'),
-(13, 4, 'Kommentar'),
-(14, 8, 'KOmmenaraiiwa'),
-(15, 15, 'awfseg'),
-(16, 15, 'efefxxxxxxxxxxxxxx'),
-(17, 15, 'dddddddddddd'),
-(18, 15, 'Panda'),
-(19, 5, 'facebook'),
-(20, 13, 'schafshund'),
-(21, 13, 'schafshund'),
-(22, 12, 'LAAAAAAAAMMEEEEE');
+INSERT INTO `comments` (`commentID`, `imageID`, `userID`, `comment`) VALUES
+(10, 12, 67, 'fd'),
+(11, 12, 67, 'dsa'),
+(12, 12, 67, 'fff'),
+(13, 6, 67, 'a'),
+(14, 8, 67, 'a'),
+(15, 12, 67, 'fds'),
+(16, 12, 67, 'fds'),
+(17, 12, 67, 'fsd'),
+(18, 12, 67, 'fdsf'),
+(19, 12, 67, 'dfsd'),
+(20, 12, 67, 'fds'),
+(21, 14, 67, 'Wieeee es gibt noch keine Kommentare? Zu so einem sÃ¼ÃŸem Hund? oO unglaublich'),
+(22, 14, 67, 'jaaa ich finde es auch richtig krass!!! '),
+(23, 14, 67, 'Dann lass uns mal noch die anderen Bilder anschauen!!');
 
 -- --------------------------------------------------------
 
@@ -105,11 +108,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nickname`, `email`, `password`) VALUES
-(62, 'fatHobbit', 'bjoern.ammon@gmx.de', '$2y$10$1RYqKwTwakhFLnmkFnz4aeM4UAbmysmwJVFVTM4fOJm/Dkja1UMoa'),
 (63, 'fat', 'fat@fat.fat', '$2y$10$0LFDiNrtcpfA7HDQKdh13.3QdrdwCo0ELskSbFQ1z9sf76dPfov3.'),
 (64, 'dick', 'dick@dick.dick', '$2y$10$oyvTNpdphuhjGuSXzkB9F.erS2IisbYLpgOQbSKYeXSw5F/WeBqg6'),
 (65, 'Admin', 'ad@mi.n', '$2y$10$jUl2LJzFR46qplbcsl27MOhV1OG2xPTdhI74hPNq/PvYT7n2HfDCi'),
-(66, 'Nicky', 'n@s.de', '$2y$10$KhD66NrzWIsZaKsleWwF1.ab/qWGixuqlynzatZovl16wDWcsz4Qy');
+(66, 'Nicky', 'n@s.de', '$2y$10$KhD66NrzWIsZaKsleWwF1.ab/qWGixuqlynzatZovl16wDWcsz4Qy'),
+(67, 'fatHobbit', 'bjoern.ammon@gmx.de', '$2y$10$L2amn1nb/jYTFTzKqLL8yuImptRaywlbeOP5ty9cGb4hO.6IGtuCq');
 
 --
 -- Indizes der exportierten Tabellen
@@ -142,7 +145,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `commentID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `commentID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 --
 -- AUTO_INCREMENT für Tabelle `images`
 --
@@ -152,7 +155,8 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

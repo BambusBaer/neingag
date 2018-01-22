@@ -26,9 +26,10 @@
 			// load images from database
 			$sql = "SELECT * FROM images WHERE imageId = $array[$i]"; 
 			$image = $pdo->query($sql)->fetch(); 
-				
+
 			// display
-			echo '<section class="container">';			
+			echo '<div class="profileleader"><a href="">'.$image['userName'].'</a></div>';	
+			echo '<section class="container">';	
 			echo '<section class="images">'.'<img src="users/'.$image['userName'].'/'.$image['userName'].'_'.$image['userImagenumber'].'.'.$image['datatype'].'"width="100%">'.'</section>';	
 			include('comment.php');
 			echo '</section><br/>';
