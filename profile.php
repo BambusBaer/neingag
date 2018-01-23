@@ -28,7 +28,7 @@
 	
 	<article>
 		<section>
-			profile shit here
+			
 		</section>
 	</article>
 	</body>

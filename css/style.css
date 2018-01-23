@@ -178,18 +178,19 @@ textarea {
 .comments {
 	align-self: flex-start; 
 	margin-left: 5px; 
-	width: 30%;
+	width: 35%;
 }
 .commentsContent{
 	overflow: auto; 
 	padding: 5px; 
 	border: 1px solid rgb(179, 178, 178);
-	max-height: 200px; 	
+	max-height: 200px;
 }
 
 
 .counter{
-	text-align: center; 
+	text-align: center;
+	align-self: bottom;
 	border-top: 1px solid rgb(179, 178, 178);
 	
 }
