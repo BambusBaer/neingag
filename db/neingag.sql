@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 22. Jan 2018 um 04:18
--- Server-Version: 10.1.22-MariaDB
--- PHP-Version: 7.1.4
+-- Erstellungszeit: 23. Jan 2018 um 16:46
+-- Server-Version: 10.1.21-MariaDB
+-- PHP-Version: 7.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -32,28 +30,28 @@ CREATE TABLE `comments` (
   `commentID` int(10) NOT NULL,
   `imageID` int(11) NOT NULL,
   `userID` int(11) NOT NULL,
-  `comment` varchar(255) NOT NULL
+  `comment` varchar(255) NOT NULL,
+  `nickname` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Daten für Tabelle `comments`
 --
 
-INSERT INTO `comments` (`commentID`, `imageID`, `userID`, `comment`) VALUES
-(10, 12, 67, 'fd'),
-(11, 12, 67, 'dsa'),
-(12, 12, 67, 'fff'),
-(13, 6, 67, 'a'),
-(14, 8, 67, 'a'),
-(15, 12, 67, 'fds'),
-(16, 12, 67, 'fds'),
-(17, 12, 67, 'fsd'),
-(18, 12, 67, 'fdsf'),
-(19, 12, 67, 'dfsd'),
-(20, 12, 67, 'fds'),
-(21, 14, 67, 'Wieeee es gibt noch keine Kommentare? Zu so einem sÃ¼ÃŸem Hund? oO unglaublich'),
-(22, 14, 67, 'jaaa ich finde es auch richtig krass!!! '),
-(23, 14, 67, 'Dann lass uns mal noch die anderen Bilder anschauen!!');
+INSERT INTO `comments` (`commentID`, `imageID`, `userID`, `comment`, `nickname`) VALUES
+(34, 15, 68, 'Panda', 'Mo'),
+(35, 15, 68, 'Test', 'Mo'),
+(36, 15, 65, 'Hallo', 'Admin'),
+(37, 7, 65, 'Pfeil', 'Admin'),
+(38, 7, 66, 'Test', 'Nicky'),
+(39, 14, 66, 'Test', 'Nicky'),
+(40, 14, 68, 'Hallo ich bin Mo', 'Mo'),
+(41, 14, 68, 'voll der schÃ¶ne Hund, commie by Mo xoxo', 'Mo'),
+(42, 13, 66, 'Scha(r)f', 'Nicky'),
+(43, 3, 65, 'Test', 'Admin'),
+(44, 5, 65, 'Test', 'Admin'),
+(45, 5, 65, 'Hallo\r\n', 'Admin'),
+(57, 15, 65, 'Ha', 'Admin');
 
 -- --------------------------------------------------------
 
@@ -76,11 +74,11 @@ CREATE TABLE `images` (
 
 INSERT INTO `images` (`imageId`, `userName`, `userImagenumber`, `datatype`, `boringCounter`, `comments`) VALUES
 (2, 'fatHobbit', 1, 'jpg', 3, 0x41),
-(3, 'fatHobbit', 2, 'jpg', 3, 0x41),
+(3, 'fatHobbit', 2, 'jpg', 1, 0x41),
 (4, 'fat', 1, 'png', 5, 0x41),
 (5, 'fat', 2, 'png', 1, 0x41),
 (6, 'dick', 1, 'jpg', 8, 0x41),
-(7, 'dick', 2, 'png', 1, 0x41),
+(7, 'dick', 2, 'png', 0, 0x41),
 (8, 'Admin', 1, 'png', 7, 0x41),
 (9, 'Admin', 2, 'jpg', 7, 0x41),
 (10, 'Admin', 3, 'jpg', 8, 0x41),
@@ -112,7 +110,8 @@ INSERT INTO `users` (`id`, `nickname`, `email`, `password`) VALUES
 (64, 'dick', 'dick@dick.dick', '$2y$10$oyvTNpdphuhjGuSXzkB9F.erS2IisbYLpgOQbSKYeXSw5F/WeBqg6'),
 (65, 'Admin', 'ad@mi.n', '$2y$10$jUl2LJzFR46qplbcsl27MOhV1OG2xPTdhI74hPNq/PvYT7n2HfDCi'),
 (66, 'Nicky', 'n@s.de', '$2y$10$KhD66NrzWIsZaKsleWwF1.ab/qWGixuqlynzatZovl16wDWcsz4Qy'),
-(67, 'fatHobbit', 'bjoern.ammon@gmx.de', '$2y$10$L2amn1nb/jYTFTzKqLL8yuImptRaywlbeOP5ty9cGb4hO.6IGtuCq');
+(67, 'fatHobbit', 'bjoern.ammon@gmx.de', '$2y$10$L2amn1nb/jYTFTzKqLL8yuImptRaywlbeOP5ty9cGb4hO.6IGtuCq'),
+(68, 'Mo', 'mo@v.de', '$2y$10$uxL5krBFQgx.RNjs349OKeTzUzr3BUdR8dtyHMEX9OCo1dC3hCxyq');
 
 --
 -- Indizes der exportierten Tabellen
@@ -145,7 +144,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `commentID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `commentID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 --
 -- AUTO_INCREMENT für Tabelle `images`
 --
@@ -155,8 +154,7 @@ ALTER TABLE `images`
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;COMMIT;
-
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
