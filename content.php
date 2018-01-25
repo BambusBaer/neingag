@@ -9,13 +9,16 @@
 		// grab image ids from db, sorted by $sort variable from start page. 1 = sorted by boring, 2 = sorted by time, else sorted randomly
 		switch ($sort) {
 			case 1:
-				$array = fetchImageIds("boringCounter", $loggedUser);
+				$array = fetchImageIds("boringCounter", $loggedUser, 0);
 				break;
 			case 2:
-				$array = fetchImageIds("imageId DESC", $loggedUser);				
+				$array = fetchImageIds("imageId DESC", $loggedUser, 0);				
+				break;
+			case 3:
+				$array = fetchImageIds("imageId DESC", $loggedUser, 1);
 				break;
 			default:
-				$array = fetchImageIds("imageId", $loggedUser);
+				$array = fetchImageIds("imageId", $loggedUser, 0);
 				shuffle($array);
 				break;
 		}
@@ -26,25 +29,31 @@
 			// load images from database
 			$sql = "SELECT * FROM images WHERE imageId = $array[$i]"; 
 			$image = $pdo->query($sql)->fetch(); 
+				if($sort != 3)
+				// display
+					echo '<div class="profileleader"><b>'.$image['userName'].'</b></div>';
 
-			// display
-			echo '<div class="profileleader"><b>'.$image['userName'].'</b></div>';	
-			echo '<section class="container">';	
-			echo '<section class="images">'.'<img src="users/'.$image['userName'].'/'.$image['userName'].'_'.$image['userImagenumber'].'.'.$image['datatype'].'"width="100%">'.'</section>';	
-			include('comment.php');
-			echo '</section><br/>';
+				echo '<section class="container">';	
+				echo '<section class="images">'.'<img src="users/'.$image['userName'].'/'.$image['userName'].'_'.$image['userImagenumber'].'.'.$image['datatype'].'"width="100%">'.'</section>';	
+				include('comment.php');
+				echo '</section><br/>';
+			
 		}	
 		?>
 </article>
 
-		<?php		
-			// fetch all image ids excluding those of a logged user (argument 2), sorted by argument 1
-			function fetchImageIds($sorting, $loggedUser) {
-				$pdo = new PDO('mysql:host=localhost;dbname=neinGag', 'root', '');
-				$sql = "SELECT * FROM images ORDER BY ".$sorting."";
-				foreach( $pdo->query($sql) as $row)
-					if($row['userName'] != $loggedUser)
-						$tmp[] = $row['imageId'];
-				return $tmp;
+<?php		
+	// fetch all image ids excluding those of a logged user (argument 2), sorted by argument 1
+	function fetchImageIds($sorting, $loggedUser, $checkForProfil) {
+		$pdo = new PDO('mysql:host=localhost;dbname=neinGag', 'root', '');
+		$sql = "SELECT * FROM images ORDER BY ".$sorting."";
+		foreach( $pdo->query($sql) as $row){
+			if($row['userName'] != $loggedUser && $checkForProfil != true)
+				$tmp[] = $row['imageId'];
+			else if($checkForProfil == true && $row['profilPic'] == 0)
+				$tmp[] = $row['imageId']; 
 			}
-		?>
+		return $tmp;
+		
+	}
+?>

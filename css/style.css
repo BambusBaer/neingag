@@ -10,6 +10,7 @@ header {
 	top: 0; 
 	left: 0; 
 	right: 0; 
+	z-index: +1;
 }
 
 body {
@@ -27,6 +28,7 @@ footer {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	z-index: +1;
 }
 
 footer a {
@@ -85,13 +87,16 @@ ul {
 .sideNav {
 	background-color: white;
 	border-right: 1px solid black;
-	width: 200px;
+	width: 12%;
+	height: 100%;
 	position: fixed;
+	
 }
 
 .sideNav li {
 	width: 100%;
 	margin-right:1px;
+
 }
 
 .sideNav li a{
@@ -105,6 +110,7 @@ ul {
 	box-sizing:border-box;
 	text-decoration:none;
 	font-weight:bold;
+
 	
 }
 
@@ -166,6 +172,7 @@ textarea {
 	display: flex;
 	align-items: center;
 	background: rgb(195, 236, 236);
+	position: relative;
 }
 
 .images {
@@ -185,6 +192,7 @@ textarea {
 	padding: 5px; 
 	border: 1px solid rgb(179, 178, 178);
 	max-height: 200px;
+
 }
 
 
@@ -192,7 +200,8 @@ textarea {
 	text-align: center;
 	align-self: bottom;
 	border-top: 1px solid rgb(179, 178, 178);
-	
+	position: absolute; 
+	bottom: 0; 
 }
 
 .singleComment{
@@ -201,3 +210,63 @@ textarea {
 	border-bottom: 1px solid rgb(179, 178, 178); 
 }
 
+/*Upload*/
+
+.upload_menu{
+	border-top: 1px solid darkgrey;
+	min-block-size: 30%; 
+	position: absolute;
+	bottom: 60px;
+	width: 100%; 
+}
+.addButton{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.addButton + label :hover{
+	background-color: grey; 
+}
+
+.addButton + label{
+	cursor: pointer;
+	position: relative;
+}
+
+input[type=submit] {
+	background-color: darkgrey;
+	cursor: pointer;
+	
+}
+
+#profilePic_menu{
+	width: 15%;
+	display: inline-flex; 
+	float: left; 
+}
+
+/*Profil*/
+
+.profilePic_profil{
+	display: block; 
+	padding-right: 10px;
+	margin-bottom: 10px; 
+	height: 10%; 
+	border-bottom: 1px solid grey; 
+	border-right: 1px solid grey; 
+	width: 30%;
+	float: left;
+}
+
+.container_Profile{
+	float: left; 
+	padding: 10px;
+	border: 1px solid rgb(179, 178, 178); 
+	display: flex;
+	background: rgb(23, 31, 73);
+	position: relative;
+}
