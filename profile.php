@@ -25,16 +25,16 @@
 	include('footer.php');
 	?>
 	
-	<article>
-		<section class="profilePic_profil">
+		<article>
+			<section class="profilePic_profil">
 			<?php
 
-				$sql = "SELECT * FROM images WHERE userName = '$_SESSION[userid]' AND profilPic = '1'";
+				$sql = "SELECT * FROM users WHERE nickname = '$_SESSION[userid]'";
 				$profilePic = $pdo->query($sql)->fetch(); 
 
 				//user has a profile pic
-				if($profilePic['profilPic'] == true)
-					echo '<section>'.'<img src="users/'.$profilePic['userName'].'/'.$profilePic['userName'].'_'.$profilePic['userImagenumber'].'.'.$profilePic['datatype'].'"width="100%">'.'</section>';	
+				if($profilePic['profilePic'])
+					echo '<section>'.'<img src="users/'.$profilePic['nickname'].'/'.$profilePic['profilePic'].'"width="100%">'.'</section>';	
 				
 				//default profile pic
 				else 
@@ -43,11 +43,7 @@
 			?>
 		
 				<!--add profile Pic-->
-				<form method="post" action="upload.php?valueOfProfilPic=1" enctype="multipart/form-data" >
-					<input type="file" name="datei" id="profil" class="addButton"/>
-					<label for="profil">+ neues Profilbild</label>
-					<input type="submit" value="Hochladen">
-				</form>
+				<a href="upload.php?profPic=1">+ neues Profilbild</a>
 			</section>
 
 			<!--user informations-->
@@ -55,14 +51,6 @@
 				<p>Vorname: </p>
 				<p>Nachname: </p>				
 				<p>Alter: </p>
-			</section>
-
-			<!--Show images from logged user-->
-			<section class="container_Profile">
-				<?php 
-					$sort = 3; 
-					include 'content.php'
-				?>
 			</section>
 		</article>
 	</body>
