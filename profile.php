@@ -28,7 +28,6 @@
 		<article>
 			<section class="profilePic_profil">
 			<?php
-
 				$sql = "SELECT * FROM users WHERE nickname = '$_SESSION[userid]'";
 				$profilePic = $pdo->query($sql)->fetch(); 
 
@@ -39,18 +38,24 @@
 				//default profile pic
 				else 
 					echo '<section class="profilePic_profil">'.'<img src="users/noPic.jpg" width="20%">'.'</section>';
-			
 			?>
 		
 				<!--add profile Pic-->
 				<a href="upload.php?profPic=1">+ neues Profilbild</a>
 			</section>
 
-			<!--user informations-->
+			<!--user informations-->			
 			<section class="userInformations">
-				<p>Vorname: </p>
-				<p>Nachname: </p>				
-				<p>Alter: </p>
+				<form action="submitUserInformation.php" method="post">
+				<br><br><br>
+					Vorname:<br>
+					<input type="text" name="firstName" value="<?php echo $profilePic['firstName'];?>"><br>
+					Nachname:<br>
+					<input type="text" name="lastName" value="<?php echo $profilePic['lastName'];?>"><br>
+					Alter:<br>
+					<input type="text" name="age" value="<?php echo $profilePic['age'];?>"><br><br>
+					<input type="submit" value="Submit">
+				</form>
 			</section>
 		</article>
 	</body>

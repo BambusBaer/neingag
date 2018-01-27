@@ -30,17 +30,17 @@
 			<input type="submit" value="Hochladen">
 		</form>
 	</article>
-	<article>
 		<?php
 			$newImage['userName'] = $_SESSION['userid'];
 			$newImage['userImagenumber'] = 1;
 			$newImage['boringCounter'] = 1;
 			$upload_folder = 'users/'.$newImage['userName'].'/'; //Das Upload-Verzeichnis
-			$extension = strtolower(pathinfo($_FILES['datei']['name'], PATHINFO_EXTENSION));
 			
-			if(isset($_GET['profPic']))
-				$isProfPic = $_GET['profPic'];
-				
+			if(!isset($_FILES['datei']))
+				die();
+			
+			$extension = strtolower(pathinfo($_FILES['datei']['name'], PATHINFO_EXTENSION));
+							
 			$newImage['datatype'] = $extension; 
 			
 			//Check IMG Type
@@ -64,7 +64,12 @@
 				}
 			}
 			
-			if($isProfPic == "1")
+			// cehck if we're trying to upload a new profile picture or a new normal picture 
+			if(isset($_GET['profPic']))
+				$isProfPic = true;
+			else $isProfPic = false;
+			
+			if($isProfPic)
 				$newImage['userImagenumber'] = 0;
 			else {
 				//Individual IMG ID increment
@@ -85,18 +90,15 @@
 			move_uploaded_file($_FILES['datei']['tmp_name'], $newPath);
 			chmod($newPath, 0640);
 			
-			if($isProfPic == "1"){
+			if($isProfPic){
 				$statement = $pdo->prepare("UPDATE users SET profilePic = ? WHERE nickname = ?");
-				$statement->execute(array($newImage['userName'].'_0'.$extension, $_SESSION['userid']));
+				$statement->execute(array($newImage['userName'].'_0.'.$extension, $_SESSION['userid']));
 			} else {
 				$statement = $pdo->prepare("INSERT INTO images (userName, userImagenumber, datatype, boringCounter) VALUES (:userName, :userImagenumber, :datatype, :boringCounter)");
 				$result = $statement->execute($newImage); 
 			}
 			
-			
-			header('Location:'.$_SERVER['HTTP_REFERER']);
 			echo 'Bild erfolgreich hochgeladen: <a href="users">'.$newPath.'</a>';
 		?>
-	</article>
 	</body>
 </html>

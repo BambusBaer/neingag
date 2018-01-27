@@ -8,8 +8,8 @@
 		$sql = "SELECT * FROM users WHERE nickname = '$_SESSION[userid]'"; 
 		$userID = $pdo->query($sql)->fetch();  
 		
-		$statement = $pdo->prepare("INSERT INTO comments (imageID, userID, nickname, comment) VALUES (?, ?, ?, ?)");
-		$result = $statement->execute(array($_GET['imgID'], $userID['id'], $userID['nickname'], $comment)); 
+		$statement = $pdo->prepare("INSERT INTO comments (imageID, nickname, comment) VALUES (?, ?, ?)");
+		$result = $statement->execute(array($_GET['imgID'], $userID['nickname'], $comment)); 
 	}
 	header('Location:'.$_SERVER['HTTP_REFERER']);
 		
