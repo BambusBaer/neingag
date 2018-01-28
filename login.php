@@ -42,8 +42,8 @@
 			//check password
 			if ($user !== false && password_verify($loginPassword, $user['password'])) {
 				$_SESSION['userid'] = $user['nickname'];
-				echo('Login erfolgreich.');				
-				header('location: index.php');
+				echo('Login erfolgreich.');	
+				header('Location:'.$_SERVER['HTTP_REFERER']);
 			} else {
 				$errorMessage = "E-Mail oder Passwort war ungültig<br>";
 			}

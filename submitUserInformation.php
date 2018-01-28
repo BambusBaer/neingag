@@ -6,7 +6,6 @@
 	if(isset($_POST['firstName']) && !empty($_POST['firstName']))
 		if(isset($_POST['lastName']) && !empty($_POST['lastName']))
 			if(isset($_POST['age']) && !empty($_POST['age'])){
-				echo $_SESSION['userid'];
 				$firstName = $_POST['firstName'];
 				$lastName = $_POST['lastName'];
 				$age = $_POST['age'];
@@ -14,6 +13,6 @@
 				$statement->execute(array($firstName, $lastName, $age, $_SESSION['userid']));
 			}
 	
-//	header('Location:'.$_SERVER['HTTP_REFERER']);
+	header('Location:'.$_SERVER['HTTP_REFERER']);
 
 ?>

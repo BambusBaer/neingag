@@ -17,7 +17,10 @@
 	   </div> 
 	</form>
 	<?php
-		echo '<br/><br/><div class="counter">Boring: '.$image['boringCounter'].'<br/><a href="upvote.php?imgID='.$array[$i].'">upvote</a> <a href="downvote.php?imgID='.$array[$i].'">downvote</a></div>'; 
+		if(!isset($_SESSION['userid']))
+			echo '<br/><br/><div class="counter">Boring: '.$image['boringCounter'].'<br/><a href="login.php">upvote</a> <a href="login.php">downvote</a></div>'; 
+		else
+			echo '<br/><br/><div class="counter">Boring: '.$image['boringCounter'].'<br/><a href="upvote.php?imgID='.$array[$i].'">upvote</a> <a href="downvote.php?imgID='.$array[$i].'">downvote</a></div>'; 
 	?>
 	
 </section>
