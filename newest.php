@@ -20,8 +20,16 @@
 				include('menu2.php');
 		?>
 	</header>
-	<?php
-		include('menu3.php');	
+	<nav class="sideNav">
+		<ul>
+			<li><a href="index.php">Start</a></li>
+			<li><a href="lamest.php">Lamest</a></li>
+			<li><a class="selected" href="newest.php">Newest</a></li>
+		</ul>
+	</nav>
+
+	
+	<?php	
 		$sort = 2;	
 		include('content.php');	
 		include('footer.php');

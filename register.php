@@ -1,38 +1,7 @@
 <?php
     session_start(); 
     $pdo = new PDO('mysql:host=localhost;dbname=neinGag', 'root', '');
-?>
 
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>neingag</title>
-		<link href="./css/style.css" rel="stylesheet" type="text/css"/>
-	</head>
-	<body>
-	<header>
-		<?php
-		include('menu.php');
-		?>
-	</header>	
-	<?php
-	include('menu3.php');	
-	include('footer.php');
-	?>
-		
-	<!--Registrieren-->
-	<div id="register">
-		<form method="post" action="?register=1">
-			<p><label for="formNickname">Nickname: </label><input type="text" name="formNickname"></p>
-			<p><label for="formMail">E-Mail: </label><input type="email" name="formMail" minlength="1"></p>
-			<p><label for="formPassword">Passwort: </label><input type="password" name="formPassword"></p>
-			<p><label for="formPassword2">Passwort: </label><input type="password" name="formPassword2"></p>
-			<input type="submit" value="Senden">
-		</form>
-	</div>
-
-	<?php
 		if (isset($_GET['register'])){
 			$newUser = array();
 
