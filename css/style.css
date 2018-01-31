@@ -84,13 +84,13 @@ ul {
 	width: 12%;
 	height: 100%;
 	position: fixed;
-	
 }
 
 .sideNav li {
 	width: 100%;
 	margin-right:1px;
 	border-bottom: 1px solid rgb(179, 178, 178); 
+	margin-top: -1px;
 
 }
 
