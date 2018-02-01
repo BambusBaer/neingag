@@ -6,7 +6,7 @@
 	
 	<?php 
 		if(!isset($_SESSION['userid']))
-			echo '<form name="comment" method="post" action="login.php">';
+			echo '<form name="comment" method="post" action="#">';
 		else
 			echo '<form name="comment" method="post" action="insertComment.php?imgID='.$image['imageId'].'">'; 
 	?>
@@ -20,7 +20,11 @@
 
 	<?php
 		//Up-/Downvoter 
-		//Check in images/ for "boring" and "tooFunny"
-		echo '<br/><br/><div class="counter">Boring: '.$image['boringCounter'].'<br/><a href="upvote.php?imgID='.$array[$i].'"><img src="images/boring.png" width="50px">Boring</a> <a href="downvote.php?imgID='.$array[$i].'">Too Funny<img src="images/tooFunny.png" width="50px"></a></div>'; 
+		//Check in images/ for "boring" and "tooFunny"		
+		
+		if(!isset($_SESSION['userid']))
+			echo '<br/><br/><div class="counter">Boring: '.$image['boringCounter'].'<br/><a href="#"><img src="images/boring.png" title="Boring" width="50px"/></a> <a href="#"><img src="images/tooFunny.png" title="Too Funny" width="50px"></a></div>'; 
+		else
+			echo '<br/><br/><div class="counter">Boring: '.$image['boringCounter'].'<br/><a href="upvote.php?imgID='.$array[$i].'"><img src="images/boring.png" title="Boring" width="50px"/></a> <a href="downvote.php?imgID='.$array[$i].'"><img src="images/tooFunny.png" title="Too Funny" width="50px"></a></div>'; 
 	?>
 </section>	

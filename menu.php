@@ -1,10 +1,4 @@
-<html>
-	<head>
-		<link href="./css/test.css" rel="stylesheet" type="text/css"/>
-	</head>
-
 	<!-- Ruft ueber onclick() ein div auf, der wie ein extra Fenster erscheint-->
-	<body>
 		<nav class="nav">
 			<ul>
 				<li><button onclick="document.getElementById('login1').style.display='block'">Login</button></li>
@@ -53,16 +47,16 @@
 				
 				<h1 class="formTitle"> Register </h1>
 				<div class="loginContainer"  style="background-color:#f1f1f1">
-					<label><b>Nickname: </b></label>
-					<input type="text" placeholder="Enter Nickname" name="nickname" required>
+					<label for="formNickname"><b>Nickname: </b></label>
+					<input type="text" placeholder="Enter Nickname" name="formNickname" required>
 					<br/>
 
-					<label for="email"><b>E-Mail:</b></label>
-					<input type="text" placeholder="Enter E-Mail" name="email" margin-left="100px" required>
+					<label for="formMail"><b>E-Mail:</b></label>
+					<input type="text" placeholder="Enter E-Mail" name="formMail" margin-left="100px" required>
 					<br/>
 					
-					<label for="loginPassword"><b>Password:</b></label>
-					<input type="password" placeholder="Enter Password" name="loginPassword" required>
+					<label for="formPassword"><b>Password:</b></label>
+					<input type="password" placeholder="Enter Password" name="formPassword" required>
 					<br/>
 
 					<p class="passRules">*Your password must be at least 8 characters long!<br/>
@@ -70,8 +64,8 @@
 					*Your password must obtain at least 1 uppercase!<br/>
 					</p>
 
-					<label for="loginPassword"><b>Password:</b></label>
-					<input type="password" placeholder="Enter Password Again" name="loginPassword" required>
+					<label for="formPassword2"><b>Password:</b></label>
+					<input type="password" placeholder="Enter Password Again" name="formPassword2" required>
 				</div> 
 				
 				<div class="loginContainer">
@@ -80,5 +74,3 @@
 				</div>			
 			</form>
 		</div>
-	</body>
-</html>

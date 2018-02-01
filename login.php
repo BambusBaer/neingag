@@ -13,7 +13,7 @@
 		$user = $statement->fetch();
 			
 		//check password
-		if ($user !== false && password_verify($loginPassword, $user['password'])) {
+		if (isset($user) && password_verify($loginPassword, $user['password'])) {
 			$_SESSION['userid'] = $user['nickname'];
 			echo('Login erfolgreich.');				
 			header('location: index.php');

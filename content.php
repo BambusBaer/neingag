@@ -9,7 +9,7 @@
 		// grab image ids from db, sorted by $sort variable from start page. 1 = sorted by boring, 2 = sorted by time, else sorted randomly
 		switch ($sort) {
 			case 1:
-				$array = fetchImageIds("boringCounter", $loggedUser);
+				$array = fetchImageIds("boringCounter DESC", $loggedUser);
 				break;
 			case 2:
 				$array = fetchImageIds("imageId DESC", $loggedUser);				

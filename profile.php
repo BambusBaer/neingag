@@ -46,15 +46,18 @@
 
 			<!--user informations-->			
 			<section class="userInformations">
-				<form action="submitUserInformation.php" method="post">
-				<br><br><br>
+				<form action="submitUserInformation.php" method="post"><br>
 					Vorname:<br>
 					<input type="text" name="firstName" value="<?php echo $profilePic['firstName'];?>"><br>
 					Nachname:<br>
 					<input type="text" name="lastName" value="<?php echo $profilePic['lastName'];?>"><br>
 					Alter:<br>
-					<input type="text" name="age" value="<?php echo $profilePic['age'];?>"><br><br>
-					<input type="submit" value="Submit">
+					<input type="number" min="0" max="100" name="age" value="<?php echo $profilePic['age'];?>"><br>
+					<input type="submit" value="Profil ändern">
+				</form>
+				<form action="deleteProfile.php" method="post"><br>
+					<label><input type="checkbox" required name="confirmDelete">Zum Löschen des Profils bitte checkbox bestätigen und dann Button Klicken. Achtung nicht wiederherstellbar!</label>
+					<input type="submit" value="Jetzt Löschen">
 				</form>
 			</section>
 		</article>
