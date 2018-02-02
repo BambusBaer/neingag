@@ -8,9 +8,8 @@
 		$email = $_POST['email']; 
 		$loginPassword = $_POST['loginPassword'];
 		
-		$statement = $pdo->prepare("SELECT * FROM users WHERE email = :email");
-		$result = $statement->execute(array('email' => $email));
-		$user = $statement->fetch();
+		$sql = "SELECT * FROM users WHERE email = '$email' OR nickname = '$email'";
+		$user = $pdo->query($sql)->fetch(); 
 			
 		//check password
 		if (isset($user) && password_verify($loginPassword, $user['password'])) {

@@ -16,5 +16,5 @@
 		foreach( $tmp as $comment)
 			echo '<div class="singleComment"><b>'.$tmpNicks[$cnt++].":</b> ".$comment.'</div><br/>';
 	}else
-		echo "Noch sind keine Kommentare vorhanden. Sei der Erste!";
+		echo '<div class="singleComment">Noch sind keine Kommentare vorhanden. Sei der Erste!</div>';
 ?>

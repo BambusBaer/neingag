@@ -5,14 +5,6 @@
 		if (isset($_GET['register'])){
 			$newUser = array();
 
-			/*check if database empty
-			$result = $pdo->query("SELECT * FROM users"); 
-			$numRows = $result->rowCount(); 
-			if($numRows == ""){
-				echo "leer"; 
-				$newUser['id'] = '0'; 
-			}*/
-
 			//save data from formular in newUser
 			$check = false; 
 			$newUser['nickname']= $_POST['formNickname'];
@@ -28,7 +20,8 @@
 			}
 
 			//check passwordterms
-			if(strlen($newUser['password']) < 1 /*|| strpos($newUser['password'], '[A-Z]')===false || strpos($newUser['password'], '[0-9]') === false*/){
+			if(strlen($newUser['password']) < 1 /*|| strpos($newUser['password'], '[A-Z]')===false 
+			|| strpos($newUser['password'], '[0-9]') === false*/){
 				echo("Das Passwort muss mindestens 8 Zeichen enthalten!");
 				$check = true; 
 			}
@@ -39,16 +32,19 @@
 				$check = true; 
 			}
 			
-			//Überprüfe, dass die E-Mail-Adresse noch nicht registriert wurde
+			//Check, if email address/nickname is been taken
 			if(!$check) { 
-				$statement = $pdo->prepare("SELECT * FROM users WHERE email = :email");
-				$result = $statement->execute(array('email'=>$newUser['email']));
-				$user = $statement->fetch();
+				$sql = "SELECT * FROM users WHERE email = '$newUser[email]' OR nickname = '$newUser[nickname]'";
+				$user = $pdo->query($sql)->fetch(); 
 				
-				if($user !== false) {
+				if($user['email'] == $newUser['email']) {
 					echo 'Diese E-Mail-Adresse ist bereits vergeben<br>';
 					$check = true;
 				} 
+				if($user['nickname'] == $newUser['nickname']){
+					echo 'Dieser Nickname ist bereits vergeben<br>';
+					$check = true;
+				}
 			}
 				
 			//it´s alright

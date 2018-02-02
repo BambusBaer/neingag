@@ -33,16 +33,14 @@
 		<?php
 			$newImage['userName'] = $_SESSION['userid'];
 			$newImage['userImagenumber'] = 1;
-			$newImage['boringCounter'] = 1;
+			$newImage['boringCounter'] = 0;
 			$upload_folder = 'users/'.$newImage['userName'].'/'; //Das Upload-Verzeichnis
 			
 			if(!isset($_FILES['datei']))
 				die();
 			
 			$extension = strtolower(pathinfo($_FILES['datei']['name'], PATHINFO_EXTENSION));
-							
-			$newImage['datatype'] = $extension; 
-			
+										
 			//Check IMG Type
 			$allowed_extensions = array('png', 'jpg', 'jpeg', 'gif');
 			if(!in_array($extension, $allowed_extensions)) {
@@ -88,7 +86,6 @@
 			
 			//Move IMG to Userfolder
 			move_uploaded_file($_FILES['datei']['tmp_name'], $newPath);
-			chmod($newPath, 0640);
 			
 			if($isProfPic){
 				$statement = $pdo->prepare("UPDATE users SET profilePic = ? WHERE nickname = ?");
