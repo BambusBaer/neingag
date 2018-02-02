@@ -88,8 +88,6 @@
 			//Move IMG to Userfolder
 			move_uploaded_file($_FILES['datei']['tmp_name'], $newPath);
 			
-			print_r($newImage);
-			
 			if($isProfPic){
 				$statement = $pdo->prepare("UPDATE users SET profilePic = ? WHERE nickname = ?");
 				$statement->execute(array($newImage['userName'].'_0.'.$extension, $_SESSION['userid']));
