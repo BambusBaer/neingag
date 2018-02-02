@@ -40,7 +40,7 @@ footer a {
 	text-decoration:none;
 }
 
-ul {
+ul	{
 	list-style-type: none;
 }
 
@@ -437,6 +437,5 @@ textarea:focus{
     from {transform: scale(0)}
     to {transform: scale(1)}
 } 
-
 
 
