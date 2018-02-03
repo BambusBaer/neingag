@@ -9,6 +9,7 @@
 		<meta charset="utf-8">
 		<title>neingag</title>
 		<link href="./css/style.css" rel="stylesheet" type="text/css"/>
+		<link rel="icon" type="image/png" href="images/logo.png">
 	</head>
 	<body>
 	<header>	
@@ -23,14 +24,7 @@
 	<?php
 	include('menu3.php');
 	include('footer.php');
-	?>
-	<article>
-		<form method="post" enctype="multipart/form-data">
-			<input type="file" name="datei"><br>
-			<input type="submit" value="Hochladen">
-		</form>
-	</article>
-		<?php
+	
 			$newImage['userName'] = $_SESSION['userid'];
 			$newImage['userImagenumber'] = 1;
 			$newImage['boringCounter'] = 0;
@@ -96,7 +90,7 @@
 				$result = $statement->execute($newImage); 
 			}
 			
-			echo 'Bild erfolgreich hochgeladen: <a href="users">'.$newPath.'</a>';
+			echo '<div style="margin: 5% auto 0 auto; text-align: center; display: block; width: 600px; background-color: rgb(219, 219, 219)"><p style="background-color: black; color: white; padding: 10px;"> Bild erfolgreich hochgeladen! </p><br/><img src='.$newPath.' style="padding: 10px; width: 30%; margin-top: 0"><br/><p style="background-color: black; color: white; padding: 10px;"/></div>';
 		?>
 	</body>
 </html>

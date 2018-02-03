@@ -186,6 +186,12 @@ article {
 	border-radius: 5px;
 }
 
+.container:hover{
+	border: 1px solid black; 
+	transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+}
+
 .images {
 	padding-right: 5px;
 	border-right: 1px solid rgb(179, 178, 178); 
@@ -198,7 +204,7 @@ article {
 	margin-left: 5px; 
 	width: 35%;
 	border-radius: 10px; 
-
+	clear: both;
 }
 
 .commentsContent{
@@ -209,7 +215,7 @@ article {
 	background-color: white; 
 	border-radius: 10px; 
 	height: 150px; 
-
+	clear: both;
 }
 
 .singleComment{
@@ -229,7 +235,7 @@ textarea {
 	border-radius: 10px; 
 	border-style: unset;
 	padding: 15px; 
-	margin-left: -8px; 
+	margin-left: -7px; 
 	border: 1px solid rgb(179, 178, 178); 
 	transition: all 0.30s ease-in-out;
     outline: none; 
@@ -244,24 +250,51 @@ textarea:focus{
 	background: white; 
 	width: 50%; 
 	padding: 10px; 
-	cursor: pointer;
 	float: right;
+	border-radius: 5px; 
+	border: 1px solid rgb(179, 178, 178); 
+	margin-right: -9px; 
 }
 
 .submitComment:hover{
 	opacity: 0.8; 
+	border: 1px solid black;
+	transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;  
 }
 
-.counter{
-	margin-top: -10px; 
-	border-radius: 0 0 10px 10px; 	
-	border-top: 1px solid rgb(179, 178, 178);
-
+/*Counter*/
+.counterContainer{
+	border-bottom: 1px solid rgb(179, 178, 178);
+	padding-bottom: 35px;
+	margin-bottom: 10px;   
+	text-align: center;
 }
 
+.boringCounter{
+	margin-top: 50px; 
+	background-color: white;
+	border-radius: 5px; 
+	border: 1px solid rgb(179, 178, 178); 
+	padding: 10px;
+}
+
+.upvoter{
+	float: left; 
+}
+
+.downvoter{
+	float: right; 
+	margin-top: -20px; 
+}
 
 
 /*Upload*/
+
+.uploadedImg{
+	text-align: center; 
+	border: 1px solid black; 
+}
 
 .upload_menu{
 	border-top: 1px solid darkgrey;
@@ -279,14 +312,21 @@ textarea:focus{
 	z-index: -1;
 }
 
-.addButton + label :hover{
-	background-color: grey; 
+.modal-upload {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;  /* 15% from the top and centered */
+    border: 1px solid #888;
+    width: 20%; /* Could be more or less, depending on screen size */
 }
 
-.addButton + label{
+.labelImg{
 	cursor: pointer;
-	position: relative;
+	width: 40%; 
+	text-align: center; 
+	margin: 5px auto 5px auto; 
+	display: block;
 }
+
 
 #profilePic_menu{
 	width: 15%;
@@ -316,10 +356,6 @@ textarea:focus{
 	position: relative;
 }
 
-/*Test shit*/
-button{
-	cursor: pointer;
-}
  
  /* The Modal (background) */
  .modal {
@@ -353,7 +389,7 @@ button{
 	margin: 0 -10px 0 -10px; 
 }
 
-label {
+logRegLabel {
     padding-top: 13px; 
     width: 7em;
     display: block;
@@ -388,11 +424,15 @@ textarea:focus{
 	text-align: end;
 }
 
+button, 
+input[type=submit]{
+	cursor: pointer;
+}
+
 /*Buttons*/
 .formButtons{
     background: rgb(218, 215, 215); 
 	margin: 0 -10px 0 -10px;  
-	
 	padding: 10px; 
 }
 

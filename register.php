@@ -1,6 +1,29 @@
 <?php
     session_start(); 
     $pdo = new PDO('mysql:host=localhost;dbname=neinGag', 'root', '');
+?>
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>neingag</title>
+		<link href="./css/style.css" rel="stylesheet" type="text/css"/>
+		<link rel="icon" type="image/png" href="images/logo.png">
+	</head>
+	<body>
+	<header>	
+		<!-- check if the user is logged in, then display either menu with login/register or logout/profile/upload -->
+		<?php
+		if(!isset($_SESSION['userid']))
+			include('menu.php');
+		else 
+			include('menu2.php');
+		?>
+	</header>
+	<?php
+	include('menu3.php');
+	include('footer.php');
 
 	if (isset($_GET['register'])){
 		$newUser = array();
@@ -13,23 +36,23 @@
 		$password2 = $_POST['formPassword2'];
 		
 		//format Ausgaben
-		echo '<div style="border: 1px solid black; margin-left: auto; margin-right: auto; width: 400px;">';
+		echo '<div style="margin: 5% auto 5% auto; text-align: center; display: block; width: 600px; background-color: rgb(219, 219, 219); border-left: 1px solid rgb(179, 178, 178); border-right: 1px solid rgb(179, 178, 178);"><p style="background-color: black; padding: 2px; margin-bottom: 20px; "/>';
 		
 		//check email 
 		if(!filter_var($newUser['email'], FILTER_VALIDATE_EMAIL)){
-			echo("Die E-Mail Adresse ist leider ungültig<br>"); 
+			echo '<p style="text-align: center;">Die E-Mail-Adresse ist ungültig!</p>';
 			$check = true; 
 		}
 
 		//check passwordterms
 		if(strlen($newUser['password']) < 1 /*|| strpos($newUser['password'], '[A-Z]')===false || strpos($newUser['password'], '[0-9]') === false*/){
-			echo("Das Passwort entspricht nicht den Vorgaben!<br>");
+			echo '<p style="text-align: center;">Das Passwort entspricht leider nicht den Vorgaben!</p>';
 			$check = true; 
 		}
 
 		//compare password1 & password2
 		if($newUser['password'] != $password2){
-			echo ("Die Passwörter stimmen leider nicht überein.<br>");
+			echo '<p style="text-align: center;">Die Passwörter stimmen leider nicht überein!</p>';
 			$check = true; 
 		}
 			
@@ -38,11 +61,11 @@
 		$user = $pdo->query($sql)->fetch(); 
 				
 		if($user['email'] == $newUser['email']) {
-			echo 'Diese E-Mail-Adresse ist bereits vergeben<br>';
+			echo '<p style="text-align: center;">Die E-Mail-Adresse ist bereits vergeben!</p>';
 			$check = true;
 		}		
 		if($user['nickname'] == $newUser['nickname']){
-			echo 'Dieser Nickname ist bereits vergeben<br>';
+			echo '<p style="text-align: center;">Der Nickname ist bereits vergeben!</p>';
 			$check = true;
 		}
 				
@@ -56,18 +79,20 @@
 			$result = $statement->execute($newUser); 
 
 			if($result) { 
-				echo 'Du wurdest erfolgreich registriert.<br>';
+				echo '<p style="text-align: center; ">Du wurdest erfolgreich registriert!</p>';
 				header('Refresh: 3; URL=index.php');
 
 				//create individual folder
 				mkdir('users/'.$newUser['nickname']);					
 			} else {
-				echo 'Beim Abspeichern ist leider ein Fehler aufgetreten<br>';
+				echo '<p style="text-align: center;">Beim Registrieren ist ein Fehler aufgetreten!</p>';
 				header('Refresh: 5; URL=index.php');
 			}
 		} else 
 			header('Refresh: 5; URL=index.php');
-		echo '</div>';
+		echo '<p style="background-color: black; padding: 2px; margin-top: 20px;"/></div>';
 	}
 ?>
+</body>
+</html>
 
