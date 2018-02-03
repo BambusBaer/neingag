@@ -334,29 +334,6 @@ textarea:focus{
 	float: left; 
 }
 
-/*Profil*/
-
-.profilePic_profil{
-	display: block; 
-	padding-right: 10px;
-	margin-bottom: 10px; 
-	height: 10%; 
-	border-bottom: 1px solid grey; 
-	border-right: 1px solid grey; 
-	width: 30%;
-	float: left;
-}
-
-.container_Profile{
-	float: left; 
-	padding: 10px;
-	border: 1px solid rgb(179, 178, 178); 
-	display: flex;
-	background: rgb(23, 31, 73);
-	position: relative;
-}
-
- 
  /* The Modal (background) */
  .modal {
     display: none; /* Hidden by default */
@@ -429,6 +406,12 @@ input[type=submit]{
 	cursor: pointer;
 }
 
+button:hover{
+	opacity: 0.8;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+}
+
 /*Buttons*/
 .formButtons{
     background: rgb(218, 215, 215); 
@@ -479,3 +462,34 @@ input[type=submit]{
 } 
 
 
+
+/*Profil*/
+.profileContainer{
+	background-color: rgb(219, 219, 219); 
+	border: 1px solid rgb(179, 178, 178); 
+	padding: 2%; 
+}
+
+.profilePic_profil{
+	display: block; 
+	padding-right: 10px;
+	margin-bottom: 10px; 
+	height: 10%; 
+	border-bottom: 1px solid grey; 
+	border-right: 1px solid grey; 
+	width: 30%;
+	float: left;
+}
+
+.container_Profile{
+	float: left; 
+	padding: 10px;
+	border: 1px solid rgb(179, 178, 178); 
+	display: flex;
+	background: rgb(23, 31, 73);
+	position: relative;
+}
+
+.uploadBtnProfile{
+	width: 100%; 
+}

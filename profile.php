@@ -27,7 +27,7 @@
 	include('footer.php');
 	?>
 	
-		<article>
+		<article class="profileContainer">
 			<section class="profilePic_profil">
 			<?php
 				$sql = "SELECT * FROM users WHERE nickname = '$_SESSION[userid]'";
@@ -39,12 +39,15 @@
 				
 				//default profile pic
 				else 
-					echo '<section class="profilePic_profil">'.'<img src="users/noPic.jpg" width="20%">'.'</section>';
+					echo '<section>'.'<img src="users/noPic.jpg" width="20%">'.'</section>';
 			?>
 		
 				<!--add profile Pic-->
-				<a href="upload.php?profPic=1">+ neues Profilbild</a>
-			</section>
+				<button class="uploadBtnProfile" onclick="document.getElementById('upload1').style.display='block'">Upload</button>
+				</section>
+
+				<button onclick="document.getElementById('upload').style.display='block'">Profil bearbeiten</button>
+					
 
 			<!--user informations-->			
 			<section class="userInformations">
@@ -57,6 +60,7 @@
 					<input type="number" min="0" max="100" name="age" value="<?php echo $profilePic['age'];?>"><br>
 					<input type="submit" value="Profil ändern">
 				</form>
+
 				<form action="deleteProfile.php" method="post"><br>
 					<label><input type="checkbox" required name="confirmDelete">Zum Löschen des Profils bitte checkbox bestätigen und dann Button Klicken. Achtung nicht wiederherstellbar!</label>
 					<input type="submit" value="Jetzt Löschen">
@@ -65,3 +69,25 @@
 		</article>
 	</body>
 </html>
+
+
+<!-- The Modal -->
+<div id="uploadProf" class="modal">
+			<span onclick="document.getElementById('uploadProf').style.display='none'"
+			class="close" >&times;</span>
+
+			<!-- Modal Content -->
+			<form class="modal-upload animate" method="post" enctype="multipart/form-data" action="upload.php?profPic=1">
+				<h1 class="formTitle"> Upload </h1>
+
+				<div class="loginContainer" >
+					<label for="loadImgProf"><img src="images/addImg.png" class="labelImg" width="100%"></label>
+					<input class="addButton" id="loadImgProf" type="file" name="datei"><br>
+				
+				</div>
+
+				<div class="loginContainer" ><input type="submit" value="Hochladen" class="formSubmit">
+					<button type="button" onclick="document.getElementById('uploadProf').style.display='none'" class="cancelbtn">Cancel</button>
+				</div>
+			</form>
+		</div> 

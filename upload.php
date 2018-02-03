@@ -59,11 +59,7 @@
 			
 			// cehck if we're trying to upload a new profile picture or a new normal picture 
 			if(isset($_GET['profPic']))
-				$isProfPic = true;
-			else $isProfPic = false;
-			
-			if($isProfPic)
-				$newImage['userImagenumber'] = 0;
+			$newImage['userImagenumber'] = 0;
 			else {
 				//Individual IMG ID increment
 				$sql = "SELECT * FROM images WHERE userName='$newImage[userName]' ORDER BY userImagenumber DESC";
@@ -82,7 +78,7 @@
 			//Move IMG to Userfolder
 			move_uploaded_file($_FILES['datei']['tmp_name'], $newPath);
 			
-			if($isProfPic){
+			if(isset($_GET['profPic'])){
 				$statement = $pdo->prepare("UPDATE users SET profilePic = ? WHERE nickname = ?");
 				$statement->execute(array($newImage['userName'].'_0.'.$extension, $_SESSION['userid']));
 			} else {
