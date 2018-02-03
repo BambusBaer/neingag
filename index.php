@@ -9,8 +9,7 @@
 		<meta charset="utf-8">
 		<title>neingag</title>
 		<link href="./css/style.css" rel="stylesheet" type="text/css"/>
-		<link href="./css/test.css" rel="stylesheet" type="test/css"/>
-
+		<link rel="icon" type="image/png" href="images/logo.png">
 	</head>
 	<body>
 	<header>	

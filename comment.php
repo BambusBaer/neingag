@@ -1,5 +1,15 @@
 <section class="comments">
 
+	<?php
+		//Up-/Downvoter 
+		//Check in images/ for "boring" and "tooFunny"		
+		
+		if(!isset($_SESSION['userid']))
+			echo '<div class="counterContainer"><a href="upvote.php?imgID='.$array[$i].'"><img src="images/boring.png" title="Boring" width="50px" class="upvoter"/></a><br> <span class="boringCounter">Boring: '.$image['boringCounter'].'</span><a href="downvote.php?imgID='.$array[$i].'"><img src="images/tooFunny.png" title="Too Funny" width="50px"class="downvoter"/></a></div>'; 
+		else
+			echo '<div class="counterContainer"><a href="upvote.php?imgID='.$array[$i].'"><img src="images/boring.png" title="Boring" width="50px" class="upvoter"/></a><br> <span class="boringCounter">Boring: '.$image['boringCounter'].'</span><a href="downvote.php?imgID='.$array[$i].'"><img src="images/tooFunny.png" title="Too Funny" width="50px"class="downvoter"/></a></div>'; 
+	?>
+
 	<div class="commentsContent">
 		<?php include('loadComments.php'); ?>
 	</div>
@@ -18,13 +28,5 @@
 	</form>
 
 
-	<?php
-		//Up-/Downvoter 
-		//Check in images/ for "boring" and "tooFunny"		
-		
-		if(!isset($_SESSION['userid']))
-			echo '<br/><br/><div class="counter">Boring: '.$image['boringCounter'].'<br/><a href="#"><img src="images/boring.png" title="Boring" width="50px"/></a> <a href="#"><img src="images/tooFunny.png" title="Too Funny" width="50px"></a></div>'; 
-		else
-			echo '<br/><br/><div class="counter">Boring: '.$image['boringCounter'].'<br/><a href="upvote.php?imgID='.$array[$i].'"><img src="images/boring.png" title="Boring" width="50px"/></a> <a href="downvote.php?imgID='.$array[$i].'"><img src="images/tooFunny.png" title="Too Funny" width="50px"></a></div>'; 
-	?>
+	
 </section>	

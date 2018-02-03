@@ -21,11 +21,11 @@
 
 
 				<div class="loginContainer"  style="background-color:#f1f1f1">
-					<label for="email"><b>E-Mail:</b></label>
+					<label class="logRegLabel" for="email"><b>E-Mail:</b></label>
 					<input type="text" placeholder="Enter E-Mail" name="email" margin-left="100px" required>
 					<br/>
 					
-					<label for="loginPassword"><b>Password:</b></label>
+					<label  class="logRegLabel" for="loginPassword"><b>Password:</b></label>
 					<input type="password" placeholder="Enter Password" name="loginPassword" required>
 					<br/>					
 
@@ -47,15 +47,15 @@
 				
 				<h1 class="formTitle"> Register </h1>
 				<div class="loginContainer"  style="background-color:#f1f1f1">
-					<label for="formNickname"><b>Nickname: </b></label>
+					<label  class="logRegLabel" for="formNickname"><b>Nickname: </b></label>
 					<input type="text" placeholder="Enter Nickname" name="formNickname" required>
 					<br/>
 
-					<label for="formMail"><b>E-Mail:</b></label>
+					<label  class="logRegLabel" for="formMail"><b>E-Mail:</b></label>
 					<input type="text" placeholder="Enter E-Mail" name="formMail" margin-left="100px" required>
 					<br/>
 					
-					<label for="formPassword"><b>Password:</b></label>
+					<label  class="logRegLabel" for="formPassword"><b>Password:</b></label>
 					<input type="password" placeholder="Enter Password" name="formPassword" required>
 					<br/>
 
@@ -64,7 +64,7 @@
 					*Your password must obtain at least 1 uppercase!<br/>
 					</p>
 
-					<label for="formPassword2"><b>Password:</b></label>
+					<label  class="logRegLabel" for="formPassword2"><b>Password:</b></label>
 					<input type="password" placeholder="Enter Password Again" name="formPassword2" required>
 				</div> 
 				
