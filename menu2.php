@@ -1,8 +1,8 @@
 <nav class="nav">
 	<ul>
 	<li><button onclick="document.getElementById('upload').style.display='block'">Upload</button></li>
-	<li><a href="profile.php">Profil</a></li>
-	<li><a href="logout.php">Abmelden</a></li>
+	<li><a href="profile.php">Profile</a></li>
+	<li><a href="logout.php">Logout</a></li>
 	</ul>
 </nav>
 

@@ -34,19 +34,18 @@
 				$profilePic = $pdo->query($sql)->fetch(); 
 
 				//user has a profile pic
-				if($profilePic['profilePic'])
-					echo '<section>'.'<img src="users/'.$profilePic['nickname'].'/'.$profilePic['profilePic'].'"width="100%">'.'</section>';	
-				
+				if($profilePic['profilePic']){
+					echo '<section>'.'<label for="upProfile"><img class="fakeLbl" src="users/'.$profilePic['nickname'].'/'.$profilePic['profilePic'].'"width="100%"></label>'.'</section>';	
+				}
 				//default profile pic
 				else 
 					echo '<section>'.'<img src="images/noPic.png" width="100%">'.'</section>';
 			?>
 		
 				<!--add profile Pic-->
-				<button class="uploadBtnProfile" onclick="document.getElementById('uploadProf').style.display='block'">Upload</button>
+				<button class="upBtn" id="upProfile" onclick="document.getElementById('uploadProf').style.display='block'">Upload</button>
 				</section>
 
-				<button onclick="document.getElementById('upload').style.display='block'">Profil bearbeiten</button>
 					
 
 			<!--user informations-->			
@@ -69,25 +68,3 @@
 		</article>
 	</body>
 </html>
-
-
-<!-- The Modal -->
-<div id="uploadProf" class="modal">
-			<span onclick="document.getElementById('uploadProf').style.display='none'"
-			class="close" >&times;</span>
-
-			<!-- Modal Content -->
-			<form class="modal-upload animate" method="post" enctype="multipart/form-data" action="upload.php?profPic=1">
-				<h1 class="formTitle"> Upload </h1>
-
-				<div class="loginContainer" >
-					<label for="loadImgProf"><img src="images/addImg.png" class="labelImg" width="100%"></label>
-					<input class="addButton" id="loadImgProf" type="file" name="datei"><br>
-				
-				</div>
-
-				<div class="loginContainer" ><input type="submit" value="Hochladen" class="formSubmit">
-					<button type="button" onclick="document.getElementById('uploadProf').style.display='none'" class="cancelbtn">Cancel</button>
-				</div>
-			</form>
-		</div> 

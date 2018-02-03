@@ -62,7 +62,7 @@ ul	{
 	margin-right:6px;
 }
 
-.nav li a{
+.nav li a, button{
 	text-align:center;
 	background-color:black;
 	color:rgb(219, 219, 219);
@@ -73,19 +73,8 @@ ul	{
 	font-weight:bold;
 	border-style: none; 
 	margin-right: -6px; 
-}
-
-.nav li button{
-	text-align:center;
-	background-color:black;
-	color:rgb(219, 219, 219);
-	display:block;
-	padding:10.5px;
-	box-sizing:border-box;
-	text-decoration:none;
-	font-weight:bold;
-	border-style: none; 
-	margin-right: -6px; 
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-size: medium; 
 }
 
 .nav li button:hover,
@@ -154,7 +143,7 @@ p label {
 	margin: 5px;
 }
 
-input {
+.modal input {
 	border: 1px solid black;
 	font-size: 16px;
 	margin: 5px;
@@ -245,15 +234,16 @@ textarea:focus{
 	box-shadow: 5px black;
 }
 
-
+.commentForm{
+	text-align: center; 
+}
 .submitComment{
+	margin-top: 10px; 
 	background: white; 
 	width: 50%; 
 	padding: 10px; 
-	float: right;
 	border-radius: 5px; 
 	border: 1px solid rgb(179, 178, 178); 
-	margin-right: -9px; 
 }
 
 .submitComment:hover{
@@ -267,7 +257,7 @@ textarea:focus{
 .counterContainer{
 	border-bottom: 1px solid rgb(179, 178, 178);
 	padding-bottom: 35px;
-	margin-bottom: 10px;   
+	margin: auto 20px 10px 20px;
 	text-align: center;
 }
 
@@ -467,27 +457,37 @@ button:hover{
 .profileContainer{
 	background-color: rgb(219, 219, 219); 
 	border: 1px solid rgb(179, 178, 178); 
-	padding: 2%; 
+	padding: 2%;
 }
 
 .profilePic_profil{
 	display: block; 
-	padding-right: 10px;
+	padding-right: 20px;
 	margin-bottom: 10px; 
+	margin-left: 12px; 
 	height: 10%;  
 	width: 30%;
 	float: left;
+
 }
 
-.container_Profile{
-	float: left; 
-	padding: 10px;
-	border: 1px solid rgb(179, 178, 178); 
-	display: flex;
-	background: rgb(23, 31, 73);
-	position: relative;
-}
-
-.uploadBtnProfile{
+.upBtn{
 	width: 100%; 
+	background-color: white;
+	border: 1px solid rgb(179, 178, 178); 
+}
+
+.fakeLbl{
+	
+}
+
+.fakeLbl:hover{
+	opacity: 0.8;
+	transition: all 0.3s ease-in-out; 
+	-webkit-transition: all 0.3s ease-in-out; 
+}
+
+.userInformations{
+	clear: both;
+	display: block; 
 }

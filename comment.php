@@ -16,9 +16,9 @@
 	
 	<?php 
 		if(!isset($_SESSION['userid']))
-			echo '<form name="comment" method="post" action="#">';
+			echo '<form class="commentForm"  name="comment" method="post" action="#">';
 		else
-			echo '<form name="comment" method="post" action="insertComment.php?imgID='.$image['imageId'].'">'; 
+			echo '<form class="commentForm" name="comment" method="post" action="insertComment.php?imgID='.$image['imageId'].'">'; 
 	?>
 		<div>
 			<!--<label for="text">Kommentar</label>-->
