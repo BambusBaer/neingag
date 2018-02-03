@@ -56,7 +56,7 @@
 					Nachname:<br>
 					<input type="text" name="lastName" value="<?php echo $profilePic['lastName'];?>"><br>
 					Alter:<br>
-					<input type="number" min="0" max="100" name="age" value="<?php echo $profilePic['age'];?>"><br>
+					<input style="padding: 5px;" type="number" min="0" max="100" name="age" value="<?php echo $profilePic['age'];?>"><br>
 					<input type="submit" value="Profil ändern">
 				</form>
 
@@ -68,3 +68,25 @@
 		</article>
 	</body>
 </html>
+
+
+<!-- The Modal -->
+<div id="uploadProf" class="modal">
+			<span onclick="document.getElementById('uploadProf').style.display='none'"
+			class="close" >&times;</span>
+
+			<!-- Modal Content -->
+			<form class="modal-upload animate" method="post" enctype="multipart/form-data" action="upload.php?profPic=1">
+				<h1 class="formTitle"> Upload </h1>
+
+				<div class="loginContainer" >
+					<label for="loadImgProf"><img src="images/addImg.png" class="labelImg" width="100%"></label>
+					<input class="addButton" id="loadImgProf" type="file" name="datei"><br>
+				
+				</div>
+
+				<div class="loginContainer" ><input type="submit" value="Hochladen" class="formSubmit">
+					<button type="button" onclick="document.getElementById('uploadProf').style.display='none'" class="cancelbtn">Cancel</button>
+				</div>
+			</form>
+		</div> 

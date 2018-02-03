@@ -143,7 +143,7 @@ p label {
 	margin: 5px;
 }
 
-.modal input {
+input {
 	border: 1px solid black;
 	font-size: 16px;
 	margin: 5px;
@@ -475,6 +475,7 @@ button:hover{
 	width: 100%; 
 	background-color: white;
 	border: 1px solid rgb(179, 178, 178); 
+	color: black; 
 }
 
 .fakeLbl{
@@ -491,3 +492,4 @@ button:hover{
 	clear: both;
 	display: block; 
 }
+
