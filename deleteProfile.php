@@ -14,11 +14,16 @@
 		
 		if($delUser && $delImages){
 			
-			$moveDir = rename('users/'.$_SESSION['userid'], 'users/archived/'.$_SESSION['userid']);
+			if(!file_exists('users/archived/'))
+				mkdir('users/archived/');
+			if(!file_exists('users/archived/'.$_SESSION['userid']))
+				$moveDir = rename('users/'.$_SESSION['userid'], 'users/archived/'.$_SESSION['userid']);
+			else 
+				$moveDir = rename('users/'.$_SESSION['userid'], 'users/archived/'.$_SESSION['userid'].'/'.$_SESSION['userid']);
 			
 			//format Ausgaben
 			echo '<div style="border: 1px solid black; margin-left: auto; margin-right: auto; width: 400px;">Profil wurde erfolgreich gelöscht<br></div>'; //aufhübschen bitte
-			header('Refresh: 3; URL=logout.php');
+			header('Refresh: 8; URL=logout.php');
 		} else{
 			//format Ausgaben
 			echo '<div style="border: 1px solid black; margin-left: auto; margin-right: auto; width: 400px;">Fehler!<br></div>'; //aufhübschen bitte

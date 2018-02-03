@@ -57,16 +57,17 @@
 
 			if($result) { 
 				echo 'Du wurdest erfolgreich registriert.<br>';
-				header('Refresh: 3; URL=index.php');
+				header('Refresh: 2; URL=index.php');
 
 				//create individual folder
-				mkdir('users/'.$newUser['nickname']);					
+				if(!file_exists('users/'.$newUser['nickname']))
+					mkdir('users/'.$newUser['nickname']);					
 			} else {
 				echo 'Beim Abspeichern ist leider ein Fehler aufgetreten<br>';
-				header('Refresh: 5; URL=index.php');
+				header('Refresh: 3; URL=index.php');
 			}
 		} else 
-			header('Refresh: 5; URL=index.php');
+			header('Refresh: 3; URL=index.php');
 		echo '</div>';
 	}
 ?>
