@@ -39,7 +39,7 @@
 		} else {
 			//format Ausgaben
 			echo '<div style="margin: 5% auto 0 auto; text-align: center; display: block; width: 600px; background-color: rgb(219, 219, 219); border-left: 1px solid rgb(179, 178, 178); border-right: 1px solid rgb(179, 178, 178);"><p style="background-color: black; padding: 2px; margin-bottom: 20px"/><p style="text-align: center;">E-Mail oder Passwort ungültig!</p><br/><p style="background-color: black; padding: 2px;"/></div>';
-			header('Refresh: 3; URL=index.php');
+			header('Refresh: 1; URL=index.php');
 		}
 	}
 ?>

@@ -36,13 +36,19 @@
 		//format Ausgaben
 		echo '<div style="margin: 5% auto 5% auto; text-align: center; display: block; width: 600px; background-color: rgb(219, 219, 219); border-left: 1px solid rgb(179, 178, 178); border-right: 1px solid rgb(179, 178, 178);"><p style="background-color: black; padding: 2px; margin-bottom: 20px; "/>';
 		
+		//check username
+		if (!ctype_alnum($newUser['nickname'])) {		
+			echo '<p style="text-align: center;">Bitte nur Klein- und Großbuchstaben sowie Ziffern verwenden!</p>';
+			$check = true; 
+		}
+		
 		//check email 
 		if(!filter_var($newUser['email'], FILTER_VALIDATE_EMAIL)){
 			echo '<p style="text-align: center;">Die E-Mail-Adresse ist ungültig!</p>';
 			$check = true; 
 		}
 		//check passwordterms
-		if(strlen($newUser['password']) < 1 /*|| strpos($newUser['password'], '[A-Z]')===false || strpos($newUser['password'], '[0-9]') === false*/){
+		if(strlen($newUser['password']) < 8 || preg_match('[A-Z]', $newUser['password']) === false || preg_match('[0-9]', $newUser['password']) === false){
 			echo '<p style="text-align: center;">Das Passwort entspricht leider nicht den Vorgaben!</p>';
 			$check = true; 
 		}
@@ -79,10 +85,10 @@
 					mkdir('users/'.$newUser['nickname']);					
 			} else {
 				echo '<p style="text-align: center;">Beim Registrieren ist ein Fehler aufgetreten!</p>';
-				header('Refresh: 3; URL=index.php');
+				header('Refresh: 2; URL=index.php');
 			}
 		} else 
-			header('Refresh: 3; URL=index.php');
+			header('Refresh: 2; URL=index.php');
 		echo '<p style="background-color: black; padding: 2px; margin-top: 20px;"/></div>';
 	}
 ?>

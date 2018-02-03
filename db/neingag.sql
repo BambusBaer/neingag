@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 03. Feb 2018 um 13:53
+-- Erstellungszeit: 03. Feb 2018 um 14:56
 -- Server-Version: 10.1.21-MariaDB
 -- PHP-Version: 7.1.2
 
@@ -33,6 +33,13 @@ CREATE TABLE `comments` (
   `nickname` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Daten für Tabelle `comments`
+--
+
+INSERT INTO `comments` (`commentID`, `imageID`, `comment`, `nickname`) VALUES
+(60, 34, 'Mir auch!', 'Nicky');
+
 -- --------------------------------------------------------
 
 --
@@ -52,10 +59,13 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`imageId`, `userName`, `userImagenumber`, `datatype`, `boringCounter`) VALUES
-(30, 'Nicky', 1, 'jpg', 0),
-(31, 'Nicky', 2, 'jpg', 0),
-(32, 'Nicky', 3, 'jpg', 0),
-(33, 'Nicky', 4, 'jpg', 0);
+(30, 'Nicky', 1, 'jpg', -2),
+(31, 'Nicky', 2, 'jpg', -3),
+(32, 'Nicky', 3, 'jpg', -1),
+(33, 'Nicky', 4, 'jpg', 0),
+(34, 'Mo', 1, 'jpg', -3),
+(35, 'Mo', 2, 'jpg', 1),
+(36, 'Nicky', 5, 'jpg', 5);
 
 -- --------------------------------------------------------
 
@@ -79,7 +89,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nickname`, `email`, `password`, `profilePic`, `lastName`, `firstName`, `age`) VALUES
-(71, 'Nicky', 'n@s.de', '$2y$10$qGbF4ZdA3VZtt2kiiHIvceAjuGR1mUGw4rC3ToRZNfqWuOByhNAp.', '', '', '', 0),
+(71, 'Nicky', 'n@s.de', '$2y$10$qGbF4ZdA3VZtt2kiiHIvceAjuGR1mUGw4rC3ToRZNfqWuOByhNAp.', '', 'S', 'Nicky', 21),
 (72, 'Mo', 'm@v.de', '$2y$10$YWz/aUc52/60PeLPbYUey.x2YO/JbN4GZIZYlNj59xHPDvGazpqqK', '', '', '', 0);
 
 --
@@ -113,12 +123,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `commentID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `commentID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 --
 -- AUTO_INCREMENT für Tabelle `images`
 --
 ALTER TABLE `images`
-  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 --
 -- AUTO_INCREMENT für Tabelle `users`
 --
