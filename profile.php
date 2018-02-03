@@ -39,7 +39,7 @@
 				
 				//default profile pic
 				else 
-					echo '<section>'.'<img src="images/noPic.png" width="20%">'.'</section>';
+					echo '<section>'.'<img src="images/noPic.png" width="100%">'.'</section>';
 			?>
 		
 				<!--add profile Pic-->
