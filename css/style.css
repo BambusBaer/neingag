@@ -389,7 +389,7 @@ textarea:focus{
 	margin: 0 -10px 0 -10px; 
 }
 
-logRegLabel {
+.logRegLabel {
     padding-top: 13px; 
     width: 7em;
     display: block;

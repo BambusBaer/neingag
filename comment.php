@@ -5,7 +5,7 @@
 		//Check in images/ for "boring" and "tooFunny"		
 		
 		if(!isset($_SESSION['userid']))
-			echo '<div class="counterContainer"><a href="upvote.php?imgID='.$array[$i].'"><img src="images/boring.png" title="Boring" width="50px" class="upvoter"/></a><br> <span class="boringCounter">Boring: '.$image['boringCounter'].'</span><a href="downvote.php?imgID='.$array[$i].'"><img src="images/tooFunny.png" title="Too Funny" width="50px"class="downvoter"/></a></div>'; 
+			echo '<div class="counterContainer"><a href="#"><img src="images/boring.png" title="Boring" width="50px" class="upvoter"/></a><br> <span class="boringCounter">Boring: '.$image['boringCounter'].'</span><a href="#"><img src="images/tooFunny.png" title="Too Funny" width="50px"class="downvoter"/></a></div>'; 
 		else
 			echo '<div class="counterContainer"><a href="upvote.php?imgID='.$array[$i].'"><img src="images/boring.png" title="Boring" width="50px" class="upvoter"/></a><br> <span class="boringCounter">Boring: '.$image['boringCounter'].'</span><a href="downvote.php?imgID='.$array[$i].'"><img src="images/tooFunny.png" title="Too Funny" width="50px"class="downvoter"/></a></div>'; 
 	?>

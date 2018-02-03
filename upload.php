@@ -91,6 +91,7 @@
 			}
 			
 			echo '<div style="margin: 5% auto 0 auto; text-align: center; display: block; width: 600px; background-color: rgb(219, 219, 219)"><p style="background-color: black; color: white; padding: 10px;"> Bild erfolgreich hochgeladen! </p><br/><img src='.$newPath.' style="padding: 10px; width: 30%; margin-top: 0"><br/><p style="background-color: black; color: white; padding: 10px;"/></div>';
+			header('Refresh: 1; URL=index.php');
 		?>
 	</body>
 </html>

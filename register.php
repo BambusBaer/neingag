@@ -73,15 +73,16 @@
 			$result = $statement->execute($newUser); 
 			if($result) { 
 				echo '<p style="text-align: center; ">Du wurdest erfolgreich registriert!</p>';
-				header('Refresh: 3; URL=index.php');
+				header('Refresh: 2; URL=index.php');
 				//create individual folder
-				mkdir('users/'.$newUser['nickname']);					
+				if(!file_exists('users/'.$newUser['nickname']))
+					mkdir('users/'.$newUser['nickname']);					
 			} else {
 				echo '<p style="text-align: center;">Beim Registrieren ist ein Fehler aufgetreten!</p>';
-				header('Refresh: 5; URL=index.php');
+				header('Refresh: 3; URL=index.php');
 			}
 		} else 
-			header('Refresh: 5; URL=index.php');
+			header('Refresh: 3; URL=index.php');
 		echo '<p style="background-color: black; padding: 2px; margin-top: 20px;"/></div>';
 	}
 ?>

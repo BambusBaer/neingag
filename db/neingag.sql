@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 02. Feb 2018 um 19:03
+-- Erstellungszeit: 03. Feb 2018 um 13:53
 -- Server-Version: 10.1.21-MariaDB
 -- PHP-Version: 7.1.2
 
@@ -52,7 +52,10 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`imageId`, `userName`, `userImagenumber`, `datatype`, `boringCounter`) VALUES
-(24, 'Mo', 1, 'jpg', 0);
+(30, 'Nicky', 1, 'jpg', 0),
+(31, 'Nicky', 2, 'jpg', 0),
+(32, 'Nicky', 3, 'jpg', 0),
+(33, 'Nicky', 4, 'jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -76,7 +79,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `nickname`, `email`, `password`, `profilePic`, `lastName`, `firstName`, `age`) VALUES
-(69, 'Mo', 'm@v.de', '$2y$10$/AWr85LNe9HHp7uPSahvl.qT0Gp8px9zn9NN9o2mp/5ejVCbYYEZ2', '', 'Vetter', 'Moritz', 27);
+(71, 'Nicky', 'n@s.de', '$2y$10$qGbF4ZdA3VZtt2kiiHIvceAjuGR1mUGw4rC3ToRZNfqWuOByhNAp.', '', '', '', 0),
+(72, 'Mo', 'm@v.de', '$2y$10$YWz/aUc52/60PeLPbYUey.x2YO/JbN4GZIZYlNj59xHPDvGazpqqK', '', '', '', 0);
 
 --
 -- Indizes der exportierten Tabellen
@@ -109,17 +113,17 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `commentID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `commentID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 --
 -- AUTO_INCREMENT für Tabelle `images`
 --
 ALTER TABLE `images`
-  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `imageId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 --
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
