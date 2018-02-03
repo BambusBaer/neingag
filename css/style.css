@@ -284,7 +284,9 @@ textarea:focus{
 .uploadedImg{
 	text-align: center; 
 	border: 1px solid black; 
+	
 }
+
 
 .upload_menu{
 	border-top: 1px solid darkgrey;
@@ -317,6 +319,9 @@ textarea:focus{
 	display: block;
 }
 
+.labelImg:after{
+	border: 1px solid black; 
+}
 
 #profilePic_menu{
 	width: 15%;
@@ -476,10 +481,6 @@ button:hover{
 	background-color: white;
 	border: 1px solid rgb(179, 178, 178); 
 	color: black; 
-}
-
-.fakeLbl{
-	
 }
 
 .fakeLbl:hover{
