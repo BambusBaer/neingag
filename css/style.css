@@ -474,9 +474,7 @@ button:hover{
 	display: block; 
 	padding-right: 10px;
 	margin-bottom: 10px; 
-	height: 10%; 
-	border-bottom: 1px solid grey; 
-	border-right: 1px solid grey; 
+	height: 10%;  
 	width: 30%;
 	float: left;
 }

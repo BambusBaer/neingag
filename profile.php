@@ -39,11 +39,11 @@
 				
 				//default profile pic
 				else 
-					echo '<section>'.'<img src="users/noPic.jpg" width="20%">'.'</section>';
+					echo '<section>'.'<img src="images/noPic.png" width="20%">'.'</section>';
 			?>
 		
 				<!--add profile Pic-->
-				<button class="uploadBtnProfile" onclick="document.getElementById('upload1').style.display='block'">Upload</button>
+				<button class="uploadBtnProfile" onclick="document.getElementById('uploadProf').style.display='block'">Upload</button>
 				</section>
 
 				<button onclick="document.getElementById('upload').style.display='block'">Profil bearbeiten</button>
