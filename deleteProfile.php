@@ -21,11 +21,15 @@
 			rename('users/'.$_SESSION['userid'], 'users/archived/'.$_SESSION['userid']);
 			
 			//format Ausgaben
-			echo '<div style="border: 1px solid black; margin-left: auto; margin-right: auto; width: 400px;">Profil wurde erfolgreich gelöscht<br></div>'; //aufhübschen bitte
+			echo '<div style="margin: 5% auto 5% auto; text-align: center; display: block; width: 600px; background-color: rgb(219, 219, 219); border-left: 1px solid rgb(179, 178, 178); border-right: 1px solid rgb(179, 178, 178);"><p style="background-color: black; padding: 2px; margin-bottom: 20px; "/>';
+			echo '<p style="text-align: center;">Profil wurde erfolgreich gelöscht</p>';
+			echo '<p style="background-color: black; padding: 2px; margin-top: 20px;"/></div>';
 			header('Refresh: 3; URL=logout.php');
 		} else{
 			//format Ausgaben
-			echo '<div style="border: 1px solid black; margin-left: auto; margin-right: auto; width: 400px;">Fehler!<br></div>'; //aufhübschen bitte
+			echo '<div style="margin: 5% auto 5% auto; text-align: center; display: block; width: 600px; background-color: rgb(219, 219, 219); border-left: 1px solid rgb(179, 178, 178); border-right: 1px solid rgb(179, 178, 178);"><p style="background-color: black; padding: 2px; margin-bottom: 20px; "/>';
+			echo '<p style="text-align: center;">Fehler!</p>';
+			echo '<p style="background-color: black; padding: 2px; margin-top: 20px;"/></div>';
 			header('Refresh: 3; URL=profile.php');
 		}
 	} else

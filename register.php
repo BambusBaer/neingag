@@ -21,7 +21,7 @@
 			include('menu2.php');
 		?>
 	</header>
-	<?php
+<?php
 	include('menu3.php');
 	include('footer.php');
 	if (isset($_GET['register'])){
@@ -72,7 +72,7 @@
 		}
 				
 		//it´s alright
-		if(!$check) { 
+		if(!$check) {
 			$newUser['password'] = password_hash($newUser['password'], PASSWORD_DEFAULT);
 			//write in database
 			$statement = $pdo->prepare("INSERT INTO users (nickname, email, password) VALUES (:nickname, :email, :password)");

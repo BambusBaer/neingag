@@ -39,13 +39,22 @@
 			//Check IMG Type
 			$allowed_extensions = array('png', 'jpg', 'jpeg', 'gif');
 			if(!in_array($extension, $allowed_extensions)) {
-				die("Ungültige Dateiendung. Nur png, jpg, jpeg und gif-Dateien sind erlaubt");
+				
+				echo '<div style="margin: 5% auto 5% auto; text-align: center; display: block; width: 600px; background-color: rgb(219, 219, 219); border-left: 1px solid rgb(179, 178, 178); border-right: 1px solid rgb(179, 178, 178);"><p style="background-color: black; padding: 2px; margin-bottom: 20px; "/>';
+				echo '<p style="text-align: center;">Ungültige Dateiendung. Nur png, jpg, jpeg und gif-Dateien sind erlaubt</p>';
+				echo '<p style="background-color: black; padding: 2px; margin-top: 20px;"/></div>';
+				header('Refresh: 1; URL=index.php');
+				die();
 			}
 				
 			//Check IMG size
 			$max_size = 500*1024; //500 KB
 			if($_FILES['datei']['size'] > $max_size) {
-				die("Bitte keine Dateien größer 500kb hochladen");
+				echo '<div style="margin: 5% auto 5% auto; text-align: center; display: block; width: 600px; background-color: rgb(219, 219, 219); border-left: 1px solid rgb(179, 178, 178); border-right: 1px solid rgb(179, 178, 178);"><p style="background-color: black; padding: 2px; margin-bottom: 20px; "/>';
+				echo '<p style="text-align: center;">Bitte keine Dateien größer 500kb hochladen</p>';
+				echo '<p style="background-color: black; padding: 2px; margin-top: 20px;"/></div>';
+				header('Refresh: 1; URL=index.php');
+				die();
 			}
 				
 			//Check IMG
@@ -53,24 +62,23 @@
 				$allowed_types = array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF);
 				$detected_type = exif_imagetype($_FILES['datei']['tmp_name']);
 				if(!in_array($detected_type, $allowed_types)) {
-					die("Nur der Upload von Bilddateien ist gestattet");
+					echo '<div style="margin: 5% auto 5% auto; text-align: center; display: block; width: 600px; background-color: rgb(219, 219, 219); border-left: 1px solid rgb(179, 178, 178); border-right: 1px solid rgb(179, 178, 178);"><p style="background-color: black; padding: 2px; margin-bottom: 20px; "/>';
+					echo '<p style="text-align: center;">Nur der Upload von Bilddateien ist gestattet</p>';
+					echo '<p style="background-color: black; padding: 2px; margin-top: 20px;"/></div>';
+					header('Refresh: 1; URL=index.php');
+					die();
 				}
 			}
 			
-			// cehck if we're trying to upload a new profile picture or a new normal picture 
-			if(isset($_GET['profPic']))
-			$newImage['userImagenumber'] = 0;
-			else {
-				//Individual IMG ID increment
-				$sql = "SELECT * FROM images WHERE userName='$newImage[userName]' ORDER BY userImagenumber DESC";
-				$lastImagenumber = $pdo->query($sql)->fetch(); 
-				echo '<br />'.$lastImagenumber['userImagenumber']; 
-				if(empty($lastImagenumber['userImagenumber'])){
-					$newImage['userImagenumber'] = 1; 
-				}else {
-					$lastImagenumber['userImagenumber']++;
-					$newImage['userImagenumber'] = $lastImagenumber['userImagenumber']; 
-				}
+			//Individual IMG ID increment
+			$sql = "SELECT * FROM images WHERE userName='$newImage[userName]' ORDER BY userImagenumber DESC";
+			$lastImagenumber = $pdo->query($sql)->fetch(); 
+			echo '<br />'.$lastImagenumber['userImagenumber']; 
+			if(empty($lastImagenumber['userImagenumber'])){
+				$newImage['userImagenumber'] = 1; 
+			}else {
+				$lastImagenumber['userImagenumber']++;
+				$newImage['userImagenumber'] = $lastImagenumber['userImagenumber']; 
 			}
 			
 			$newPath = $upload_folder.$newImage['userName'].'_'.$newImage['userImagenumber'].'.'.$extension; 
@@ -81,13 +89,13 @@
 			if(isset($_GET['profPic'])){
 				$statement = $pdo->prepare("UPDATE users SET profilePic = ? WHERE nickname = ?");
 				$statement->execute(array($newImage['userName'].'_0.'.$extension, $_SESSION['userid']));
+				header('Refresh: 1; URL=profile.php');
 			} else {
 				$statement = $pdo->prepare("INSERT INTO images (userName, userImagenumber, datatype, boringCounter) VALUES (:userName, :userImagenumber, :datatype, :boringCounter)");
 				$result = $statement->execute($newImage); 
+				header('Refresh: 1; URL=index.php');
 			}
-			
 			echo '<div style="margin: 5% auto 0 auto; text-align: center; display: block; width: 600px; background-color: rgb(219, 219, 219)"><p style="background-color: black; color: white; padding: 10px;"> Bild erfolgreich hochgeladen! </p><br/><img src='.$newPath.' style="padding: 10px; width: 30%; margin-top: 0"><br/><p style="background-color: black; color: white; padding: 10px;"/></div>';
-			header('Refresh: 1; URL=index.php');
 		?>
 	</body>
 </html>
