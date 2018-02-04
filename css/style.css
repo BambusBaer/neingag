@@ -319,16 +319,13 @@ textarea:focus{
 	display: block;
 }
 
-.labelImg:after{
-	border: 1px solid black; 
-}
-
 #profilePic_menu{
 	width: 15%;
 	display: inline-flex; 
 	float: left; 
 }
 
+/*https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form*/
  /* The Modal (background) */
  .modal {
     display: none; /* Hidden by default */

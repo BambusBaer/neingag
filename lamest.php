@@ -10,7 +10,6 @@
 		<title>neingag</title>
 		<link href="./css/style.css" rel="stylesheet" type="text/css"/>
 		<link rel="icon" type="image/png" href="images/logo.png">
-
 	</head>
 	<body>
 	<header>	

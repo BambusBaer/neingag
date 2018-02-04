@@ -30,6 +30,8 @@
 			$newImage['boringCounter'] = 0;
 			$upload_folder = 'users/'.$newImage['userName'].'/'; //Das Upload-Verzeichnis
 			
+			//Upload Quelle https://www.php-einfach.de/php-tutorial/dateiupload/
+
 			if(!isset($_FILES['datei']))
 				die("Keine Datei ausgewählt");
 			
@@ -40,7 +42,10 @@
 			$allowed_extensions = array('png', 'jpg', 'jpeg', 'gif');
 			if(!in_array($extension, $allowed_extensions)) {
 				
-				echo '<div style="margin: 5% auto 5% auto; text-align: center; display: block; width: 600px; background-color: rgb(219, 219, 219); border-left: 1px solid rgb(179, 178, 178); border-right: 1px solid rgb(179, 178, 178);"><p style="background-color: black; padding: 2px; margin-bottom: 20px; "/>';
+				echo '<div style="margin: 5% auto 5% auto; text-align: center; display: block; width: 600px; 
+					background-color: rgb(219, 219, 219); border-left: 1px solid rgb(179, 178, 178); 
+					border-right: 1px solid rgb(179, 178, 178);">
+					<p style="background-color: black; padding: 2px; margin-bottom: 20px; "/>';
 				echo '<p style="text-align: center;">Ungültige Dateiendung. Nur png, jpg, jpeg und gif-Dateien sind erlaubt</p>';
 				echo '<p style="background-color: black; padding: 2px; margin-top: 20px;"/></div>';
 				header('Refresh: 1; URL=index.php');

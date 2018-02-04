@@ -6,6 +6,7 @@
 	</ul>
 </nav>
 
+<!--https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form-->
 <!-- The Modal -->
 <div id="upload" class="modal">
 			<span onclick="document.getElementById('upload').style.display='none'"
