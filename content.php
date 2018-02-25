@@ -22,7 +22,7 @@
 				break;
 		}
 
-		if($array !== null)
+		if($array !== null){
 			//display all images
 			for($i=0; $i<count($array); $i++){
 						
@@ -36,6 +36,7 @@
 				include('comment.php');
 				echo '</section><br/>';
 			}	
+		}
 		else
 			die("Hier scheinen noch keine Bilder zu sein.");
 		?>

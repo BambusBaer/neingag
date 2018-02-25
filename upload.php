@@ -86,20 +86,22 @@
 				$newImage['userImagenumber'] = $lastImagenumber['userImagenumber']; 
 			}
 			
-			$newPath = $upload_folder.$newImage['userName'].'_'.$newImage['userImagenumber'].'.'.$extension; 
-			
-			//Move IMG to Userfolder
-			move_uploaded_file($_FILES['datei']['tmp_name'], $newPath);
 			
 			if(isset($_GET['profPic'])){
 				$statement = $pdo->prepare("UPDATE users SET profilePic = ? WHERE nickname = ?");
 				$statement->execute(array($newImage['userName'].'_0.'.$extension, $_SESSION['userid']));
+				$newImage['userImagenumber'] = 0; 
 				header('Refresh: 1; URL=profile.php');
 			} else {
 				$statement = $pdo->prepare("INSERT INTO images (userName, userImagenumber, datatype, boringCounter) VALUES (:userName, :userImagenumber, :datatype, :boringCounter)");
 				$result = $statement->execute($newImage); 
 				header('Refresh: 1; URL=index.php');
 			}
+			
+			$newPath = $upload_folder.$newImage['userName'].'_'.$newImage['userImagenumber'].'.'.$extension; 
+
+			//Move IMG to Userfolder
+			move_uploaded_file($_FILES['datei']['tmp_name'], $newPath);
 			echo '<div style="margin: 5% auto 0 auto; text-align: center; display: block; width: 600px; background-color: rgb(219, 219, 219)"><p style="background-color: black; color: white; padding: 10px;"> Bild erfolgreich hochgeladen! </p><br/><img src='.$newPath.' style="padding: 10px; width: 30%; margin-top: 0"><br/><p style="background-color: black; color: white; padding: 10px;"/></div>';
 		?>
 	</body>
